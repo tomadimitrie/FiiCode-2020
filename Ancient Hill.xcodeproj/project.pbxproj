@@ -9,25 +9,27 @@
 /* Begin PBXBuildFile section */
 		E2DFBF462401545400805804 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DFBF452401545400805804 /* AppDelegate.swift */; };
 		E2DFBF482401545400805804 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = E2DFBF472401545400805804 /* GameScene.sks */; };
-		E2DFBF4A2401545400805804 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = E2DFBF492401545400805804 /* Actions.sks */; };
 		E2DFBF4C2401545400805804 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DFBF4B2401545400805804 /* GameScene.swift */; };
 		E2DFBF4E2401545400805804 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DFBF4D2401545400805804 /* GameViewController.swift */; };
 		E2DFBF512401545400805804 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2DFBF4F2401545400805804 /* Main.storyboard */; };
 		E2DFBF532401545600805804 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2DFBF522401545600805804 /* Assets.xcassets */; };
 		E2DFBF562401545700805804 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2DFBF542401545700805804 /* LaunchScreen.storyboard */; };
+		E2DFBF5E24015EA900805804 /* MyTileSet.sks in Resources */ = {isa = PBXBuildFile; fileRef = E2DFBF5D24015EA900805804 /* MyTileSet.sks */; };
+		E2DFBF6024016D2300805804 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DFBF5F24016D2300805804 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		E2DFBF422401545400805804 /* Ancient Hill.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Ancient Hill.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2DFBF452401545400805804 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E2DFBF472401545400805804 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
-		E2DFBF492401545400805804 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
 		E2DFBF4B2401545400805804 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		E2DFBF4D2401545400805804 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		E2DFBF502401545400805804 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E2DFBF522401545600805804 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E2DFBF552401545700805804 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E2DFBF572401545700805804 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E2DFBF5D24015EA900805804 /* MyTileSet.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MyTileSet.sks; sourceTree = "<group>"; };
+		E2DFBF5F24016D2300805804 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,8 +64,9 @@
 			children = (
 				E2DFBF452401545400805804 /* AppDelegate.swift */,
 				E2DFBF472401545400805804 /* GameScene.sks */,
-				E2DFBF492401545400805804 /* Actions.sks */,
+				E2DFBF5D24015EA900805804 /* MyTileSet.sks */,
 				E2DFBF4B2401545400805804 /* GameScene.swift */,
+				E2DFBF5F24016D2300805804 /* Constants.swift */,
 				E2DFBF4D2401545400805804 /* GameViewController.swift */,
 				E2DFBF4F2401545400805804 /* Main.storyboard */,
 				E2DFBF522401545600805804 /* Assets.xcassets */,
@@ -134,8 +137,8 @@
 				E2DFBF512401545400805804 /* Main.storyboard in Resources */,
 				E2DFBF482401545400805804 /* GameScene.sks in Resources */,
 				E2DFBF532401545600805804 /* Assets.xcassets in Resources */,
+				E2DFBF5E24015EA900805804 /* MyTileSet.sks in Resources */,
 				E2DFBF562401545700805804 /* LaunchScreen.storyboard in Resources */,
-				E2DFBF4A2401545400805804 /* Actions.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,6 +152,7 @@
 				E2DFBF4C2401545400805804 /* GameScene.swift in Sources */,
 				E2DFBF4E2401545400805804 /* GameViewController.swift in Sources */,
 				E2DFBF462401545400805804 /* AppDelegate.swift in Sources */,
+				E2DFBF6024016D2300805804 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
