@@ -11,28 +11,36 @@ import SpriteKit
 import GameplayKit
 
 class GameViewController: UIViewController {
-
+    
+    @IBOutlet weak var hudView: SKView!
+    @IBOutlet weak var gameView: SKView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let view = self.view as! SKView? {
-            if let scene = SKScene(fileNamed: "GameScene") {
-                scene.scaleMode = .aspectFill
-                view.presentScene(scene)
+        if let championSelectScene = SKScene(fileNamed: "ChampionSelectScene") as? ChampionSelectScene {
+            championSelectScene.scaleMode = .aspectFill
+            self.gameView.presentScene(championSelectScene)
+            self.gameView.ignoresSiblingOrder = true
+            #if DEBUG
+            self.gameView.showsFPS = true
+            self.gameView.showsNodeCount = true
+            #endif
+            if let hudScene = SKScene(fileNamed: "HUDScene") as? HUDScene {
+                hudScene.scaleMode = .aspectFill
+                hudScene.hudDelegate = championSelectScene
+                hudView.presentScene(hudScene)
             }
-            view.ignoresSiblingOrder = true
-            view.showsFPS = true
-            view.showsNodeCount = true
         }
     }
-
+    
     override var shouldAutorotate: Bool {
         return true
     }
-
+    
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .landscape
     }
-
+    
     override var prefersStatusBarHidden: Bool {
         return true
     }
