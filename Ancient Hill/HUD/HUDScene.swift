@@ -12,6 +12,11 @@ class HUDScene: SKScene {
     
     weak var hudDelegate: HUDDelegate?
     
+    override func didMove(to view: SKView) {
+        self.backgroundColor = .clear
+        self.view?.backgroundColor = .clear
+    }
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         let touch = touches.first
         if let position = touch?.location(in: self) {
