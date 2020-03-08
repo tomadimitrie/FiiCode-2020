@@ -1,38 +1,107 @@
-//
-//  GameScene.swift
-//  Ancient Hill
-//
-//  Created by Dimitrie-Toma Furdui on 22/02/2020.
-//  Copyright © 2020 Green Meerkats of Romania. All rights reserved.
-//
-
 import SpriteKit
 
-fileprivate enum Nodes: String {
-    case camera = "camera"
-    case player = "player"
-    case tileMap = "tileMap"
+private enum Nodes: String {
+    case camera
+    case player
+    case person = "finnachu"
+    case tileMap
+    case wall
+    case road
 }
 
-class ChampionSelectScene: SKScene, HUDDelegate {
+private enum CategoryMask: UInt32 {
+    case player = 0b0001
+    case road = 0b0010
+    case wall = 0b0100
+    case person = 0b1000
+}
+
+class ChampionSelectScene: SKScene {
     var player: SKNode!
+    var person: SKNode!
     var tileMap: SKTileMapNode!
-    
+
     var currentMovingDirection: Direction?
-    
+
     weak var actionButtonVisibilityDelegate: ActionButtonVisibilityDelegate?
-        
+
     override func didMove(to view: SKView) {
+        self.setupNodes()
+        self.setupCameraConstraints()
+    }
+
+    private func setupNodes() {
         guard let camera = self.childNode(withName: Nodes.camera.rawValue) as? SKCameraNode else { return }
         guard let player = self.childNode(withName: Nodes.player.rawValue) else { return }
+        guard let person = self.childNode(withName: Nodes.person.rawValue) else { return }
         guard let tileMap = self.childNode(withName: Nodes.tileMap.rawValue) as? SKTileMapNode else { return }
-        
+
         self.player = player
+        self.person = person
         self.tileMap = tileMap
-        
-        let playerConstraint = SKConstraint.distance(.init(constantValue: 0.0), to: player)
-        
-        let scaledSize = CGSize(width: self.size.width * camera.xScale, height: self.size.height * camera.yScale)
+        self.camera = camera
+
+        self.physicsWorld.contactDelegate = self
+
+        self.setupPlayer()
+        self.setupPerson()
+        self.setupTileMap()
+    }
+
+    private func setupPlayer() {
+        let physicsBody = SKPhysicsBody(rectangleOf: self.player.frame.size)
+        physicsBody.categoryBitMask = CategoryMask.player.rawValue
+        physicsBody.collisionBitMask = CategoryMask.wall.rawValue
+        physicsBody.contactTestBitMask = CategoryMask.road.rawValue | CategoryMask.wall.rawValue | CategoryMask.person.rawValue
+        self.player.physicsBody = physicsBody
+    }
+
+    private func setupPerson() {
+        let physicsBody = SKPhysicsBody(rectangleOf: self.player.frame.size)
+        physicsBody.categoryBitMask = CategoryMask.person.rawValue
+        physicsBody.isDynamic = false
+        self.person.physicsBody = physicsBody
+    }
+
+    private func setupTileMap() {
+        let tileSize = self.tileMap.tileSize
+        let halfWidth = CGFloat(self.tileMap.numberOfColumns) / 2.0 * tileSize.width
+        let halfHeight = CGFloat(self.tileMap.numberOfRows) / 2.0 * tileSize.height
+        for column in 0..<self.tileMap.numberOfColumns {
+            for row in 0..<self.tileMap.numberOfRows {
+                let tileDefinition = self.tileMap.tileDefinition(atColumn: column, row: row)
+                let tileX = CGFloat(column) * tileSize.width - halfWidth
+                let tileY = CGFloat(row) * tileSize.height - halfHeight
+                let rect = CGRect(x: 0, y: 0, width: tileSize.width, height: tileSize.height)
+                let tileNode = SKShapeNode(rect: rect)
+                tileNode.strokeColor = .clear
+                tileNode.position = CGPoint(x: tileX, y: tileY)
+                let physicsBodyCenter = CGPoint(x: tileSize.width / 2.0, y: tileSize.height / 2.0)
+                let physicsBody = SKPhysicsBody(rectangleOf: tileSize, center: physicsBodyCenter)
+                physicsBody.isDynamic = false
+                switch tileDefinition?.name {
+                case Nodes.road.rawValue:
+                    physicsBody.categoryBitMask = CategoryMask.road.rawValue
+                case Nodes.wall.rawValue:
+                    physicsBody.categoryBitMask = CategoryMask.wall.rawValue
+                default:
+                    break
+                }
+                tileNode.physicsBody = physicsBody
+                tileMap.addChild(tileNode)
+            }
+        }
+    }
+
+    private func setupCameraConstraints() {
+        guard let camera = self.camera else { return }
+
+        let playerConstraint = SKConstraint.distance(.init(constantValue: 0.0), to: self.player)
+
+        let scaledSize = CGSize(
+            width: self.size.width * camera.xScale,
+            height: self.size.height * camera.yScale
+        )
         let tileMapContentRect = tileMap.calculateAccumulatedFrame()
         let xInset = min(scaledSize.width / 2, tileMapContentRect.width / 2)
         let yInset = min(scaledSize.height / 2, tileMapContentRect.height / 2)
@@ -41,64 +110,61 @@ class ChampionSelectScene: SKScene, HUDDelegate {
         let yRange = SKRange(lowerLimit: insetContentRect.minY, upperLimit: insetContentRect.maxY)
         let boardConstraint = SKConstraint.positionX(xRange, y: yRange)
         boardConstraint.referenceNode = tileMap
-        
+
         camera.constraints = [playerConstraint, boardConstraint]
     }
-    
+}
+
+extension ChampionSelectScene: HUDDelegate {
     func hudTapped(for direction: Direction) {
         self.currentMovingDirection = direction
         var newPosition = CGPoint.zero
         switch direction {
-            case .top:
-                newPosition.y += Constants.moveAmount
-            case .left:
-                newPosition.x -= Constants.moveAmount
-            case .right:
-                newPosition.x += Constants.moveAmount
-            case .bottom:
-                newPosition.y -= Constants.moveAmount
-            case .action:
-                break
+        case .top:
+            newPosition.y += Constants.moveAmount
+        case .left:
+            newPosition.x -= Constants.moveAmount
+        case .right:
+            newPosition.x += Constants.moveAmount
+        case .bottom:
+            newPosition.y -= Constants.moveAmount
+        case .action:
+            break
         }
         let moveAction = SKAction.move(by: newPosition.cgVector, duration: 0.1)
         let repeatForeverAction = SKAction.repeatForever(moveAction)
         let actionSequence = SKAction.sequence([moveAction, repeatForeverAction])
         self.player.run(actionSequence, withKey: direction.rawValue)
     }
-    
-    override func update(_ currentTime: TimeInterval) {
-        let directions: [Direction] = [.top, .right, .bottom, .left]
-        guard (directions.map { self.player.action(forKey: $0.rawValue) != nil }.contains(true)) else { return }
-        var position = self.player.position
-        
-        let nodesAtPlayerPosition = self.nodes(at: position)
-        self.actionButtonVisibilityDelegate?.toggleActionButton(to: nodesAtPlayerPosition.map { $0.name }.contains("finnachu"))
-        
-        switch self.currentMovingDirection {
-            case .top:
-                position.y += Constants.collisionThreshold
-                position.y += self.player.frame.size.height / 2
-            case .left:
-                position.x -= Constants.collisionThreshold
-                position.x -= self.player.frame.size.width / 2
-            case .right:
-                position.x += Constants.collisionThreshold
-                position.x += self.player.frame.size.width / 2
-            case .bottom:
-                position.y -= Constants.collisionThreshold
-                position.y -= self.player.frame.size.height / 2
+
+    func hudReleased(for direction: Direction) {
+        self.player.removeAction(forKey: direction.rawValue)
+    }
+}
+
+extension ChampionSelectScene: SKPhysicsContactDelegate {
+    func didBegin(_ contact: SKPhysicsContact) {
+        if contact.bodyA.categoryBitMask == CategoryMask.player.rawValue {
+            switch contact.bodyB.categoryBitMask {
+            case CategoryMask.wall.rawValue:
+                let directions: [Direction] = [.top, .right, .bottom, .left]
+                directions.forEach {
+                    self.hudReleased(for: $0)
+                }
+            case CategoryMask.person.rawValue:
+                self.actionButtonVisibilityDelegate?.toggleActionButton(to: true)
             default:
                 break
-        }
-        let tile = self.tileMap.tile(at: position)
-        if tile?.name != "champion-select-road" {
-            directions.forEach {
-                self.hudReleased(for: $0)
             }
         }
     }
-    
-    func hudReleased(for direction: Direction) {
-        self.player.removeAction(forKey: direction.rawValue)
+
+    func didEnd(_ contact: SKPhysicsContact) {
+        if
+            contact.bodyA.categoryBitMask == CategoryMask.player.rawValue &&
+            contact.bodyB.categoryBitMask == CategoryMask.person.rawValue
+        {
+            self.actionButtonVisibilityDelegate?.toggleActionButton(to: false)
+        }
     }
 }
