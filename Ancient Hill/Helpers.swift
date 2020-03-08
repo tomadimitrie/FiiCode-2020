@@ -11,6 +11,7 @@ import SpriteKit
 
 class Constants {
     static let moveAmount: CGFloat = 50
+    static let collisionThreshold: CGFloat = 10
 }
 
 extension CGVector {
@@ -33,6 +34,6 @@ extension SKTileMapNode {
     }
 }
 
-func +(lhs: CGPoint, rhs: CGPoint) -> CGPoint {
+func + (lhs: CGPoint, rhs: CGPoint) -> CGPoint {
     CGPoint(x: lhs.x + rhs.x, y: lhs.y + rhs.y)
 }

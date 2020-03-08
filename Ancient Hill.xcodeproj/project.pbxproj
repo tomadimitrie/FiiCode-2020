@@ -19,9 +19,13 @@
 		E2DFBF5E24015EA900805804 /* MyTileSet.sks in Resources */ = {isa = PBXBuildFile; fileRef = E2DFBF5D24015EA900805804 /* MyTileSet.sks */; };
 		E2DFBF6024016D2300805804 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DFBF5F24016D2300805804 /* Helpers.swift */; };
 		E2FF1D312413EB4200082D72 /* ChampionSelectScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = E2FF1D302413EB4200082D72 /* ChampionSelectScene.sks */; };
+		E913C9D44C1E075809B12A60 /* Pods_Ancient_Hill.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65CB58B4057B35FC8F4F8A29 /* Pods_Ancient_Hill.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		619BECD209199061E6CF0A5D /* Pods-Ancient Hill.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ancient Hill.release.xcconfig"; path = "Target Support Files/Pods-Ancient Hill/Pods-Ancient Hill.release.xcconfig"; sourceTree = "<group>"; };
+		65CB58B4057B35FC8F4F8A29 /* Pods_Ancient_Hill.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ancient_Hill.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B49F2767234947EC9FB778BC /* Pods-Ancient Hill.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ancient Hill.debug.xcconfig"; path = "Target Support Files/Pods-Ancient Hill/Pods-Ancient Hill.debug.xcconfig"; sourceTree = "<group>"; };
 		E217346124058012005B1A94 /* HUDScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = HUDScene.sks; sourceTree = "<group>"; };
 		E21734632405802E005B1A94 /* HUDScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDScene.swift; sourceTree = "<group>"; };
 		E2AC188B2405815400B4896B /* HUDDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDDelegate.swift; sourceTree = "<group>"; };
@@ -43,12 +47,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E913C9D44C1E075809B12A60 /* Pods_Ancient_Hill.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		21380531B3E849785A417E46 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				65CB58B4057B35FC8F4F8A29 /* Pods_Ancient_Hill.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		508A9A4CCDFB3ED85B334815 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B49F2767234947EC9FB778BC /* Pods-Ancient Hill.debug.xcconfig */,
+				619BECD209199061E6CF0A5D /* Pods-Ancient Hill.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		E217346524058055005B1A94 /* HUD */ = {
 			isa = PBXGroup;
 			children = (
@@ -73,6 +95,8 @@
 			children = (
 				E2DFBF442401545400805804 /* Ancient Hill */,
 				E2DFBF432401545400805804 /* Products */,
+				508A9A4CCDFB3ED85B334815 /* Pods */,
+				21380531B3E849785A417E46 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -108,9 +132,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E2DFBF5A2401545700805804 /* Build configuration list for PBXNativeTarget "Ancient Hill" */;
 			buildPhases = (
+				0B9EC6ACAA9929AB6D700492 /* [CP] Check Pods Manifest.lock */,
 				E2DFBF3E2401545400805804 /* Sources */,
 				E2DFBF3F2401545400805804 /* Frameworks */,
 				E2DFBF402401545400805804 /* Resources */,
+				E2BFA3992415520C003FF071 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -169,6 +195,49 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0B9EC6ACAA9929AB6D700492 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Ancient Hill-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E2BFA3992415520C003FF071 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E2DFBF3E2401545400805804 /* Sources */ = {
@@ -322,6 +391,7 @@
 		};
 		E2DFBF5B2401545700805804 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B49F2767234947EC9FB778BC /* Pods-Ancient Hill.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -341,6 +411,7 @@
 		};
 		E2DFBF5C2401545700805804 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 619BECD209199061E6CF0A5D /* Pods-Ancient Hill.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

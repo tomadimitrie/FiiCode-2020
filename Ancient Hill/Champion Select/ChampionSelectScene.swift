@@ -19,6 +19,8 @@ class ChampionSelectScene: SKScene, HUDDelegate {
     var tileMap: SKTileMapNode!
     
     var currentMovingDirection: Direction?
+    
+    weak var actionButtonVisibilityDelegate: ActionButtonVisibilityDelegate?
         
     override func didMove(to view: SKView) {
         guard let camera = self.childNode(withName: Nodes.camera.rawValue) as? SKCameraNode else { return }
@@ -55,6 +57,8 @@ class ChampionSelectScene: SKScene, HUDDelegate {
                 newPosition.x += Constants.moveAmount
             case .bottom:
                 newPosition.y -= Constants.moveAmount
+            case .action:
+                break
         }
         let moveAction = SKAction.move(by: newPosition.cgVector, duration: 0.1)
         let repeatForeverAction = SKAction.repeatForever(moveAction)
@@ -66,20 +70,24 @@ class ChampionSelectScene: SKScene, HUDDelegate {
         let directions: [Direction] = [.top, .right, .bottom, .left]
         guard (directions.map { self.player.action(forKey: $0.rawValue) != nil }.contains(true)) else { return }
         var position = self.player.position
+        
+        let nodesAtPlayerPosition = self.nodes(at: position)
+        self.actionButtonVisibilityDelegate?.toggleActionButton(to: nodesAtPlayerPosition.map { $0.name }.contains("finnachu"))
+        
         switch self.currentMovingDirection {
             case .top:
-                position.y += Constants.moveAmount
+                position.y += Constants.collisionThreshold
                 position.y += self.player.frame.size.height / 2
             case .left:
-                position.x -= Constants.moveAmount
+                position.x -= Constants.collisionThreshold
                 position.x -= self.player.frame.size.width / 2
             case .right:
-                position.x += Constants.moveAmount
+                position.x += Constants.collisionThreshold
                 position.x += self.player.frame.size.width / 2
             case .bottom:
-                position.y -= Constants.moveAmount
+                position.y -= Constants.collisionThreshold
                 position.y -= self.player.frame.size.height / 2
-            case .none:
+            default:
                 break
         }
         let tile = self.tileMap.tile(at: position)

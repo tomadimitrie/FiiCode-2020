@@ -15,6 +15,10 @@ class HUDScene: SKScene {
     override func didMove(to view: SKView) {
         self.backgroundColor = .clear
         self.view?.backgroundColor = .clear
+        if let actionButton = self.childNode(withName: "action") {
+            actionButton.isHidden = true
+        }
+        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -48,5 +52,13 @@ class HUDScene: SKScene {
     
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.cancelAllDirections()
+    }
+}
+
+extension HUDScene: ActionButtonVisibilityDelegate {
+    func toggleActionButton(to flag: Bool) {
+        if let actionButton = self.childNode(withName: "action") {
+            actionButton.isHidden = !flag
+        }
     }
 }

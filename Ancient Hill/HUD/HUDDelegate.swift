@@ -13,9 +13,14 @@ enum Direction: String {
     case right = "right"
     case bottom = "bottom"
     case left = "left"
+    case action = "action"
 }
 
 protocol HUDDelegate: class {
     func hudTapped(for direction: Direction)
     func hudReleased(for direction: Direction)
+}
+
+protocol ActionButtonVisibilityDelegate: class {
+    func toggleActionButton(to flag: Bool)
 }
