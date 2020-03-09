@@ -29,3 +29,11 @@ extension SKTileMapNode {
 func + (lhs: CGPoint, rhs: CGPoint) -> CGPoint {
     CGPoint(x: lhs.x + rhs.x, y: lhs.y + rhs.y)
 }
+
+func == (lhs: CGPoint, rhs: CGPoint) -> Bool {
+    lhs.x == rhs.x && lhs.y == rhs.y
+}
+
+func + (lhs: CGSize, rhs: CGSize) -> CGSize {
+    CGSize(width: lhs.width + rhs.width, height: lhs.height + rhs.height)
+}

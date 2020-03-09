@@ -11,8 +11,8 @@ private enum Nodes: String {
 
 private enum CategoryMask: UInt32 {
     case player = 0b0001
-    case road = 0b0010
-    case wall = 0b0100
+    case road   = 0b0010
+    case wall   = 0b0100
     case person = 0b1000
 }
 
@@ -50,9 +50,10 @@ class ChampionSelectScene: SKScene {
 
     private func setupPlayer() {
         let physicsBody = SKPhysicsBody(rectangleOf: self.player.frame.size)
+        physicsBody.allowsRotation = false
         physicsBody.categoryBitMask = CategoryMask.player.rawValue
         physicsBody.collisionBitMask = CategoryMask.wall.rawValue
-        physicsBody.contactTestBitMask = CategoryMask.road.rawValue | CategoryMask.wall.rawValue | CategoryMask.person.rawValue
+        physicsBody.contactTestBitMask = CategoryMask.wall.rawValue | CategoryMask.person.rawValue
         self.player.physicsBody = physicsBody
     }
 
@@ -69,26 +70,23 @@ class ChampionSelectScene: SKScene {
         let halfHeight = CGFloat(self.tileMap.numberOfRows) / 2.0 * tileSize.height
         for column in 0..<self.tileMap.numberOfColumns {
             for row in 0..<self.tileMap.numberOfRows {
-                let tileDefinition = self.tileMap.tileDefinition(atColumn: column, row: row)
-                let tileX = CGFloat(column) * tileSize.width - halfWidth
-                let tileY = CGFloat(row) * tileSize.height - halfHeight
-                let rect = CGRect(x: 0, y: 0, width: tileSize.width, height: tileSize.height)
-                let tileNode = SKShapeNode(rect: rect)
-                tileNode.strokeColor = .clear
-                tileNode.position = CGPoint(x: tileX, y: tileY)
-                let physicsBodyCenter = CGPoint(x: tileSize.width / 2.0, y: tileSize.height / 2.0)
-                let physicsBody = SKPhysicsBody(rectangleOf: tileSize, center: physicsBodyCenter)
-                physicsBody.isDynamic = false
-                switch tileDefinition?.name {
-                case Nodes.road.rawValue:
-                    physicsBody.categoryBitMask = CategoryMask.road.rawValue
-                case Nodes.wall.rawValue:
+                if
+                    let tileDefinition = self.tileMap.tileDefinition(atColumn: column, row: row),
+                    tileDefinition.name == Nodes.wall.rawValue
+                {
+                    let tileX = CGFloat(column) * tileSize.width - halfWidth
+                    let tileY = CGFloat(row) * tileSize.height - halfHeight
+                    let rect = CGRect(x: 0, y: 0, width: tileSize.width, height: tileSize.height)
+                    let tileNode = SKShapeNode(rect: rect)
+                    tileNode.strokeColor = .clear
+                    tileNode.position = CGPoint(x: tileX, y: tileY)
+                    let physicsBodyCenter = CGPoint(x: tileSize.width / 2.0, y: tileSize.height / 2.0)
+                    let physicsBody = SKPhysicsBody(rectangleOf: tileSize, center: physicsBodyCenter)
+                    physicsBody.isDynamic = false
                     physicsBody.categoryBitMask = CategoryMask.wall.rawValue
-                default:
-                    break
+                    tileNode.physicsBody = physicsBody
+                    self.tileMap.addChild(tileNode)
                 }
-                tileNode.physicsBody = physicsBody
-                tileMap.addChild(tileNode)
             }
         }
     }
@@ -144,18 +142,11 @@ extension ChampionSelectScene: HUDDelegate {
 
 extension ChampionSelectScene: SKPhysicsContactDelegate {
     func didBegin(_ contact: SKPhysicsContact) {
-        if contact.bodyA.categoryBitMask == CategoryMask.player.rawValue {
-            switch contact.bodyB.categoryBitMask {
-            case CategoryMask.wall.rawValue:
-                let directions: [Direction] = [.top, .right, .bottom, .left]
-                directions.forEach {
-                    self.hudReleased(for: $0)
-                }
-            case CategoryMask.person.rawValue:
-                self.actionButtonVisibilityDelegate?.toggleActionButton(to: true)
-            default:
-                break
-            }
+        if
+            contact.bodyA.categoryBitMask == CategoryMask.player.rawValue &&
+            contact.bodyB.categoryBitMask == CategoryMask.person.rawValue
+        {
+            self.actionButtonVisibilityDelegate?.toggleActionButton(to: true)
         }
     }
 
