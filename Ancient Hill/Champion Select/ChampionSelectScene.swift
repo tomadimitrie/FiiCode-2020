@@ -65,6 +65,67 @@ class ChampionSelectScene: SKScene {
     }
 
     private func setupTileMap() {
+        var table: [[Int?]] = [
+            [1, 1, 1, 1, 2, 2, 1, 1],
+            [1, 1, 1, 2, 2, 2, 1, 1],
+            [2, 2, 2, 2, 2, 1, 3, 3],
+            [2, 2, 1, 1, 1, 1, 3, 3],
+            [2, 2, 3, 3, 3, 3, 3, 3]
+        ]
+
+        func floodFill<T>(for table: inout [[T?]])
+            -> [(type: T, nodes: [(node: T, x: Int, y: Int)])]
+            where T: Equatable & ExpressibleByIntegerLiteral
+        {
+            var group = [(type: T, nodes: [(node: T, x: Int, y: Int)])]()
+            while case let (x, y, initialNode)?: (Int, Int, T)? = {
+                for y in 0..<table.count {
+                    for x in 0..<table[y].count {
+                        if let node = table[y][x] {
+                            return (x, y, node)
+                        }
+                    }
+                }
+                return nil
+            }() {
+                var currentGroup = [(node: T, x: Int, y: Int)]()
+                func _floodFill(_ x: Int, _ y: Int) {
+                    guard
+                        x >= 0,
+                        x < table[0].count,
+                        y >= 0,
+                        y < table.count,
+                        let node = table[y][x],
+                        node == initialNode
+                    else { return }
+                    currentGroup.append(
+                        (
+                            node: node,
+                            x: x,
+                            y: y
+                        )
+                    )
+                    table[y][x] = nil
+                    _floodFill(x + 1, y    )
+                    _floodFill(x - 1, y    )
+                    _floodFill(x    , y + 1)
+                    _floodFill(x    , y - 1)
+                }
+                _floodFill(x, y)
+                group.append((type: initialNode, nodes: currentGroup))
+            }
+            return group
+        }
+
+        let flood = floodFill(for: &table)
+        for e in flood {
+            print("Type \(e.type):")
+            for f in e.nodes {
+                print("x: \(f.x), y: \(f.y)")
+            }
+            print("\n")
+        }
+
         let tileSize = self.tileMap.tileSize
         let halfWidth = CGFloat(self.tileMap.numberOfColumns) / 2.0 * tileSize.width
         let halfHeight = CGFloat(self.tileMap.numberOfRows) / 2.0 * tileSize.height
