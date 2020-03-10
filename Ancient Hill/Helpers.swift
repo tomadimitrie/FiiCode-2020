@@ -37,3 +37,41 @@ func == (lhs: CGPoint, rhs: CGPoint) -> Bool {
 func + (lhs: CGSize, rhs: CGSize) -> CGSize {
     CGSize(width: lhs.width + rhs.width, height: lhs.height + rhs.height)
 }
+
+func floodFill(for table: inout [[(type: String, rect: CGRect)?]]) -> [String: [[CGRect]]] {
+    var group = [String: [[CGRect]]]()
+    while case let (x, y, initialNode)?: (Int, Int, (type: String, rect: CGRect))? = {
+        for y in 0..<table.count {
+            for x in 0..<table[y].count {
+                if let node = table[y][x] {
+                    return (x, y, node)
+                }
+            }
+        }
+        return nil
+    }() {
+        var currentGroup = [CGRect]()
+        func _floodFill(_ x: Int, _ y: Int) {
+            guard
+                x >= 0,
+                x < table[0].count,
+                y >= 0,
+                y < table.count,
+                let node = table[y][x],
+                node.type == initialNode.type
+            else { return }
+            currentGroup.append(node.rect)
+            table[y][x] = nil
+            _floodFill(x + 1, y    )
+            _floodFill(x - 1, y    )
+            _floodFill(x    , y + 1)
+            _floodFill(x    , y - 1)
+        }
+        _floodFill(x, y)
+        currentGroup.sort {
+            $0.origin.x < $1.origin.x && $0.origin.y < $1.origin.y
+        }
+        group[initialNode.type, default: []].append(currentGroup)
+    }
+    return group
+}
