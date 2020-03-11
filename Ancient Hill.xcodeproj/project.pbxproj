@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E209BFFC24194CFD00F594AD /* DialogueView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E209BFFB24194CFD00F594AD /* DialogueView.xib */; };
+		E209BFFE24194D0900F594AD /* DialogueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E209BFFD24194D0900F594AD /* DialogueView.swift */; };
+		E209C00124194E9000F594AD /* ThaleahFat.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E209C00024194E9000F594AD /* ThaleahFat.ttf */; };
+		E209C003241951D000F594AD /* DialogueDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E209C002241951D000F594AD /* DialogueDelegate.swift */; };
 		E217346224058012005B1A94 /* HUDScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = E217346124058012005B1A94 /* HUDScene.sks */; };
 		E21734642405802E005B1A94 /* HUDScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21734632405802E005B1A94 /* HUDScene.swift */; };
 		E2AC188C2405815400B4896B /* HUDDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AC188B2405815400B4896B /* HUDDelegate.swift */; };
@@ -26,6 +30,10 @@
 		619BECD209199061E6CF0A5D /* Pods-Ancient Hill.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ancient Hill.release.xcconfig"; path = "Target Support Files/Pods-Ancient Hill/Pods-Ancient Hill.release.xcconfig"; sourceTree = "<group>"; };
 		65CB58B4057B35FC8F4F8A29 /* Pods_Ancient_Hill.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ancient_Hill.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B49F2767234947EC9FB778BC /* Pods-Ancient Hill.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ancient Hill.debug.xcconfig"; path = "Target Support Files/Pods-Ancient Hill/Pods-Ancient Hill.debug.xcconfig"; sourceTree = "<group>"; };
+		E209BFFB24194CFD00F594AD /* DialogueView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DialogueView.xib; sourceTree = "<group>"; };
+		E209BFFD24194D0900F594AD /* DialogueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogueView.swift; sourceTree = "<group>"; };
+		E209C00024194E9000F594AD /* ThaleahFat.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ThaleahFat.ttf; sourceTree = "<group>"; };
+		E209C002241951D000F594AD /* DialogueDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogueDelegate.swift; sourceTree = "<group>"; };
 		E217346124058012005B1A94 /* HUDScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = HUDScene.sks; sourceTree = "<group>"; };
 		E21734632405802E005B1A94 /* HUDScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDScene.swift; sourceTree = "<group>"; };
 		E2AC188B2405815400B4896B /* HUDDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDDelegate.swift; sourceTree = "<group>"; };
@@ -71,6 +79,24 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		E209BFFA24194CE300F594AD /* Dialogue */ = {
+			isa = PBXGroup;
+			children = (
+				E209BFFB24194CFD00F594AD /* DialogueView.xib */,
+				E209BFFD24194D0900F594AD /* DialogueView.swift */,
+				E209C002241951D000F594AD /* DialogueDelegate.swift */,
+			);
+			path = Dialogue;
+			sourceTree = "<group>";
+		};
+		E209BFFF24194E7600F594AD /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				E209C00024194E9000F594AD /* ThaleahFat.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		E217346524058055005B1A94 /* HUD */ = {
 			isa = PBXGroup;
 			children = (
@@ -111,6 +137,8 @@
 		E2DFBF442401545400805804 /* Ancient Hill */ = {
 			isa = PBXGroup;
 			children = (
+				E209BFFF24194E7600F594AD /* Fonts */,
+				E209BFFA24194CE300F594AD /* Dialogue */,
 				E21734662405805F005B1A94 /* Champion Select */,
 				E217346524058055005B1A94 /* HUD */,
 				E2DFBF452401545400805804 /* AppDelegate.swift */,
@@ -186,8 +214,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2DFBF512401545400805804 /* Main.storyboard in Resources */,
+				E209BFFC24194CFD00F594AD /* DialogueView.xib in Resources */,
 				E2DFBF532401545600805804 /* Assets.xcassets in Resources */,
 				E2DFBF5E24015EA900805804 /* MyTileSet.sks in Resources */,
+				E209C00124194E9000F594AD /* ThaleahFat.ttf in Resources */,
 				E2FF1D312413EB4200082D72 /* ChampionSelectScene.sks in Resources */,
 				E217346224058012005B1A94 /* HUDScene.sks in Resources */,
 				E2DFBF562401545700805804 /* LaunchScreen.storyboard in Resources */,
@@ -251,6 +281,8 @@
 				E2DFBF4E2401545400805804 /* GameViewController.swift in Sources */,
 				E2DFBF462401545400805804 /* AppDelegate.swift in Sources */,
 				E2DFBF6024016D2300805804 /* Helpers.swift in Sources */,
+				E209C003241951D000F594AD /* DialogueDelegate.swift in Sources */,
+				E209BFFE24194D0900F594AD /* DialogueView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

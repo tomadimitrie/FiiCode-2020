@@ -5,6 +5,8 @@ import GameplayKit
 class GameViewController: UIViewController {
     @IBOutlet weak var hudView: SKView!
     @IBOutlet weak var gameView: SKView!
+    @IBOutlet weak var dialogueView: DialogueView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupScenes()
@@ -13,6 +15,7 @@ class GameViewController: UIViewController {
     private func setupScenes() {
         if let championSelectScene = SKScene(fileNamed: "ChampionSelectScene") as? ChampionSelectScene {
             championSelectScene.scaleMode = .aspectFill
+            championSelectScene.dialogueDelegate = self.dialogueView
             self.gameView.presentScene(championSelectScene)
             self.gameView.ignoresSiblingOrder = true
             #if DEBUG
@@ -21,7 +24,7 @@ class GameViewController: UIViewController {
             championSelectScene.view?.showsPhysics = true
             #endif
             if let hudScene = SKScene(fileNamed: "HUDScene") as? HUDScene {
-                championSelectScene.actionButtonVisibilityDelegate = hudScene
+                championSelectScene.actionButtonDelegate = hudScene
                 hudScene.scaleMode = .aspectFill
                 hudScene.hudDelegate = championSelectScene
                 hudView.presentScene(hudScene)

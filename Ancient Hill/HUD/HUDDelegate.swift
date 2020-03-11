@@ -13,6 +13,6 @@ protocol HUDDelegate: class {
     func hudReleased(for direction: Direction)
 }
 
-protocol ActionButtonVisibilityDelegate: class {
+protocol ActionButtonDelegate: class {
     func toggleActionButton(to flag: Bool)
 }

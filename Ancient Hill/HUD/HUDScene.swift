@@ -54,7 +54,7 @@ class HUDScene: SKScene {
     }
 }
 
-extension HUDScene: ActionButtonVisibilityDelegate {
+extension HUDScene: ActionButtonDelegate {
     func toggleActionButton(to flag: Bool) {
         if let actionButton = self.childNode(withName: "action") {
             actionButton.isHidden = !flag

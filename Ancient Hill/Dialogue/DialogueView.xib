@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_5" orientation="landscape" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="ThaleahFat.ttf">
+            <string>ThaleahFat</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DialogueView" customModule="Ancient_Hill" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="iN0-l3-epB" id="xXo-p9-NXD"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dialogue" translatesAutoresizingMaskIntoConstraints="NO" id="ldM-RA-2qB">
+                    <rect key="frame" x="44" y="186" width="808" height="207"/>
+                </imageView>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8uc-wi-ugV">
+                    <rect key="frame" x="69" y="259.33333333333331" width="758" height="60.333333333333314"/>
+                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </string>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <fontDescription key="fontDescription" name="ThaleahFat" family="ThaleahFat" pointSize="22"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="ldM-RA-2qB" secondAttribute="trailing" id="5Zb-EV-TNx"/>
+                <constraint firstItem="8uc-wi-ugV" firstAttribute="top" relation="greaterThanOrEqual" secondItem="ldM-RA-2qB" secondAttribute="top" constant="25" id="D5R-Ml-nag"/>
+                <constraint firstItem="8uc-wi-ugV" firstAttribute="leading" secondItem="ldM-RA-2qB" secondAttribute="leading" constant="25" id="NiO-Xj-7ct"/>
+                <constraint firstItem="8uc-wi-ugV" firstAttribute="bottom" relation="lessThanOrEqual" secondItem="ldM-RA-2qB" secondAttribute="bottom" constant="-25" id="Sla-zT-Pmh"/>
+                <constraint firstItem="ldM-RA-2qB" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.5" id="aS1-Hg-2K5"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="ldM-RA-2qB" secondAttribute="bottom" id="hM1-KN-QyD"/>
+                <constraint firstItem="ldM-RA-2qB" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="n63-9e-Xpv"/>
+                <constraint firstItem="8uc-wi-ugV" firstAttribute="centerY" secondItem="ldM-RA-2qB" secondAttribute="centerY" id="tyv-i3-sPU"/>
+                <constraint firstItem="8uc-wi-ugV" firstAttribute="trailing" secondItem="ldM-RA-2qB" secondAttribute="trailing" constant="-25" id="xSt-EM-9fC"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="138.61607142857142" y="128.98550724637681"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="dialogue" width="551" height="326"/>
+    </resources>
+</document>

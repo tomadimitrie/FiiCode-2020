@@ -23,7 +23,8 @@ class ChampionSelectScene: SKScene {
 
     var currentMovingDirection: Direction?
 
-    weak var actionButtonVisibilityDelegate: ActionButtonVisibilityDelegate?
+    weak var actionButtonDelegate: ActionButtonDelegate?
+    weak var dialogueDelegate: DialogueDelegate?
 
     override func didMove(to view: SKView) {
         self.setupNodes()
@@ -68,9 +69,9 @@ class ChampionSelectScene: SKScene {
         let tileSize = self.tileMap.tileSize
         let halfWidth = CGFloat(self.tileMap.numberOfColumns) / 2.0 * tileSize.width
         let halfHeight = CGFloat(self.tileMap.numberOfRows) / 2.0 * tileSize.height
-        var table = [[(type: String, rect: CGRect)?]]()
+        var table = [[(type: String, position: CGPoint)?]]()
         for row in 0..<self.tileMap.numberOfRows {
-            var tableRow = [(type: String, rect: CGRect)?]()
+            var tableRow = [(type: String, position: CGPoint)?]()
             for column in 0..<self.tileMap.numberOfColumns {
                 if
                     let tileDefinition = self.tileMap.tileDefinition(atColumn: column, row: row),
@@ -82,18 +83,31 @@ class ChampionSelectScene: SKScene {
                     let tileNode = SKShapeNode(rect: rect)
                     tileNode.strokeColor = .clear
                     tileNode.position = CGPoint(x: tileX, y: tileY)
-                    tableRow.append((type: tileName, rect: tileNode.frame))
+                    tableRow.append((type: tileName, position: tileNode.position))
                     let physicsBodyCenter = CGPoint(x: tileSize.width / 2.0, y: tileSize.height / 2.0)
                     let physicsBody = SKPhysicsBody(rectangleOf: tileSize, center: physicsBodyCenter)
                     physicsBody.isDynamic = false
-                    physicsBody.categoryBitMask = CategoryMask.wall.rawValue
+                    switch tileName {
+                    case "wall":
+                        physicsBody.categoryBitMask = CategoryMask.wall.rawValue
+                    case "road":
+                        physicsBody.categoryBitMask = CategoryMask.road.rawValue
+                    default:
+                        break
+                    }
                     tileNode.physicsBody = physicsBody
                     self.tileMap.addChild(tileNode)
                 }
             }
             table.append(tableRow)
         }
-        let flood = floodFill(for: &table)
+//        let flood = NodeHelper.floodFill(for: &table).mapValues {
+//            $0.map {
+//                $0.map {
+//                    NodeHelper.Node(tileSize: tileSize, center: $0)
+//                }
+//            }
+//        }
     }
 
     private func setupCameraConstraints() {
@@ -132,7 +146,7 @@ extension ChampionSelectScene: HUDDelegate {
         case .bottom:
             newPosition.y -= Constants.moveAmount
         case .action:
-            break
+            self.dialogueDelegate?.toggleDialogue(to: true)
         }
         let moveAction = SKAction.move(by: newPosition.cgVector, duration: 0.1)
         let repeatForeverAction = SKAction.repeatForever(moveAction)
@@ -151,7 +165,7 @@ extension ChampionSelectScene: SKPhysicsContactDelegate {
             contact.bodyA.categoryBitMask == CategoryMask.player.rawValue &&
             contact.bodyB.categoryBitMask == CategoryMask.person.rawValue
         {
-            self.actionButtonVisibilityDelegate?.toggleActionButton(to: true)
+            self.actionButtonDelegate?.toggleActionButton(to: true)
         }
     }
 
@@ -160,7 +174,7 @@ extension ChampionSelectScene: SKPhysicsContactDelegate {
             contact.bodyA.categoryBitMask == CategoryMask.player.rawValue &&
             contact.bodyB.categoryBitMask == CategoryMask.person.rawValue
         {
-            self.actionButtonVisibilityDelegate?.toggleActionButton(to: false)
+            self.actionButtonDelegate?.toggleActionButton(to: false)
         }
     }
 }
