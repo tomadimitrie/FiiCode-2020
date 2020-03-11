@@ -70,7 +70,9 @@ class NodeHelper {
         }
     }
     
-    static func floodFill(for table: inout [[(type: String, position: CGPoint)?]]) -> [String: [[CGPoint]]] {
+    static func floodFill(
+        for table: inout [[(type: String, position: CGPoint)?]]
+    ) -> [String: [[CGPoint]]] {
         var group = [String: [[CGPoint]]]()
         while case let (x, y, initialNode)?: (Int, Int, (type: String, position: CGPoint))? = {
             for y in 0..<table.count {

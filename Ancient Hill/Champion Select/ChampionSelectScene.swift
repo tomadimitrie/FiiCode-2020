@@ -153,6 +153,11 @@ class ChampionSelectScene: GameScene {
         case .bottom:
             newPosition.y -= Constants.moveAmount
         case .action:
+            self.dialogueDelegate?.changeTexts(to: [
+                DialogueText(text: "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA", name: .finnachu),
+                DialogueText(text: "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB", name: .finnachu),
+                DialogueText(text: "CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC", name: .finnachu)
+            ])
             self.dialogueDelegate?.toggleDialogue(to: true)
             return
         default:
