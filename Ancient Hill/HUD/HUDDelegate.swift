@@ -6,6 +6,7 @@ enum Direction: String {
     case bottom
     case left
     case action
+    case unknown
 }
 
 protocol HUDDelegate: class {

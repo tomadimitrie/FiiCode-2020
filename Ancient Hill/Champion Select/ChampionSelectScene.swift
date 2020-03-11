@@ -7,24 +7,24 @@ private enum Nodes: String {
     case tileMap
     case wall
     case road
+    case portal
 }
 
 private enum CategoryMask: UInt32 {
-    case player = 0b0001
-    case road   = 0b0010
-    case wall   = 0b0100
-    case person = 0b1000
+    case player = 0b00001
+    case road   = 0b00010
+    case wall   = 0b00100
+    case person = 0b01000
+    case portal = 0b10000
 }
 
-class ChampionSelectScene: SKScene {
-    var player: SKNode!
-    var person: SKNode!
+class ChampionSelectScene: GameScene {
+    var player: SKSpriteNode!
+    var person: SKSpriteNode!
     var tileMap: SKTileMapNode!
+    var portal: SKSpriteNode!
 
     var currentMovingDirection: Direction?
-
-    weak var actionButtonDelegate: ActionButtonDelegate?
-    weak var dialogueDelegate: DialogueDelegate?
 
     override func didMove(to view: SKView) {
         self.setupNodes()
@@ -33,13 +33,15 @@ class ChampionSelectScene: SKScene {
 
     private func setupNodes() {
         guard let camera = self.childNode(withName: Nodes.camera.rawValue) as? SKCameraNode else { return }
-        guard let player = self.childNode(withName: Nodes.player.rawValue) else { return }
-        guard let person = self.childNode(withName: Nodes.person.rawValue) else { return }
+        guard let player = self.childNode(withName: Nodes.player.rawValue) as? SKSpriteNode else { return }
+        guard let person = self.childNode(withName: Nodes.person.rawValue) as? SKSpriteNode else { return }
         guard let tileMap = self.childNode(withName: Nodes.tileMap.rawValue) as? SKTileMapNode else { return }
+        guard let portal = self.childNode(withName: Nodes.portal.rawValue) as? SKSpriteNode else { return }
 
         self.player = player
         self.person = person
         self.tileMap = tileMap
+        self.portal = portal
         self.camera = camera
 
         self.physicsWorld.contactDelegate = self
@@ -47,6 +49,7 @@ class ChampionSelectScene: SKScene {
         self.setupPlayer()
         self.setupPerson()
         self.setupTileMap()
+        self.setupPortal()
     }
 
     private func setupPlayer() {
@@ -54,7 +57,7 @@ class ChampionSelectScene: SKScene {
         physicsBody.allowsRotation = false
         physicsBody.categoryBitMask = CategoryMask.player.rawValue
         physicsBody.collisionBitMask = CategoryMask.wall.rawValue
-        physicsBody.contactTestBitMask = CategoryMask.wall.rawValue | CategoryMask.person.rawValue
+        physicsBody.contactTestBitMask = CategoryMask.wall.rawValue | CategoryMask.person.rawValue | CategoryMask.portal.rawValue
         self.player.physicsBody = physicsBody
     }
 
@@ -77,26 +80,25 @@ class ChampionSelectScene: SKScene {
                     let tileDefinition = self.tileMap.tileDefinition(atColumn: column, row: row),
                     let tileName = tileDefinition.name
                 {
-                    let tileX = CGFloat(column) * tileSize.width - halfWidth
-                    let tileY = CGFloat(row) * tileSize.height - halfHeight
-                    let rect = CGRect(x: 0, y: 0, width: tileSize.width, height: tileSize.height)
-                    let tileNode = SKShapeNode(rect: rect)
-                    tileNode.strokeColor = .clear
-                    tileNode.position = CGPoint(x: tileX, y: tileY)
-                    tableRow.append((type: tileName, position: tileNode.position))
-                    let physicsBodyCenter = CGPoint(x: tileSize.width / 2.0, y: tileSize.height / 2.0)
-                    let physicsBody = SKPhysicsBody(rectangleOf: tileSize, center: physicsBodyCenter)
-                    physicsBody.isDynamic = false
                     switch tileName {
                     case "wall":
+                        let tileX = CGFloat(column) * tileSize.width - halfWidth
+                        let tileY = CGFloat(row) * tileSize.height - halfHeight
+                        let rect = CGRect(x: 0, y: 0, width: tileSize.width, height: tileSize.height)
+                        let tileNode = SKShapeNode(rect: rect)
+                        tileNode.strokeColor = .clear
+                        tileNode.position = CGPoint(x: tileX, y: tileY)
+                        tableRow.append((type: tileName, position: tileNode.position))
+                        let physicsBodyCenter = CGPoint(x: tileSize.width / 2.0, y: tileSize.height / 2.0)
+                        let physicsBody = SKPhysicsBody(rectangleOf: tileSize, center: physicsBodyCenter)
+                        physicsBody.isDynamic = false
                         physicsBody.categoryBitMask = CategoryMask.wall.rawValue
-                    case "road":
-                        physicsBody.categoryBitMask = CategoryMask.road.rawValue
+                        tileNode.physicsBody = physicsBody
+                        self.tileMap.addChild(tileNode)
+                   
                     default:
                         break
                     }
-                    tileNode.physicsBody = physicsBody
-                    self.tileMap.addChild(tileNode)
                 }
             }
             table.append(tableRow)
@@ -108,6 +110,13 @@ class ChampionSelectScene: SKScene {
 //                }
 //            }
 //        }
+    }
+    
+    private func setupPortal() {
+        let physicsBody = SKPhysicsBody(rectangleOf: self.portal.frame.size)
+        physicsBody.categoryBitMask = CategoryMask.portal.rawValue
+        physicsBody.isDynamic = false
+        self.portal.physicsBody = physicsBody
     }
 
     private func setupCameraConstraints() {
@@ -130,10 +139,8 @@ class ChampionSelectScene: SKScene {
 
         camera.constraints = [playerConstraint, boardConstraint]
     }
-}
-
-extension ChampionSelectScene: HUDDelegate {
-    func hudTapped(for direction: Direction) {
+    
+    override func hudTapped(for direction: Direction) {
         self.currentMovingDirection = direction
         var newPosition = CGPoint.zero
         switch direction {
@@ -147,25 +154,41 @@ extension ChampionSelectScene: HUDDelegate {
             newPosition.y -= Constants.moveAmount
         case .action:
             self.dialogueDelegate?.toggleDialogue(to: true)
+            return
+        default:
+            return
         }
-        let moveAction = SKAction.move(by: newPosition.cgVector, duration: 0.1)
-        let repeatForeverAction = SKAction.repeatForever(moveAction)
-        let actionSequence = SKAction.sequence([moveAction, repeatForeverAction])
-        self.player.run(actionSequence, withKey: direction.rawValue)
+        let textures = AssetsLoader.textures(for: .finnachu, direction: direction)
+        var frameAction: SKAction? = nil
+        if let textures = textures {
+            self.player.texture = textures[0]
+            frameAction = SKAction.repeatForever(
+                SKAction.animate(with: textures, timePerFrame: 0.25, resize: false, restore: true)
+            )
+        }
+        let moveAction = SKAction.repeatForever(
+            SKAction.move(by: newPosition.cgVector, duration: 0.1)
+        )
+        let actionGroup = SKAction.group([frameAction, moveAction].compactMap { $0 })
+        self.player.run(actionGroup, withKey: direction.rawValue)
     }
 
-    func hudReleased(for direction: Direction) {
+    override func hudReleased(for direction: Direction) {
         self.player.removeAction(forKey: direction.rawValue)
     }
 }
 
 extension ChampionSelectScene: SKPhysicsContactDelegate {
     func didBegin(_ contact: SKPhysicsContact) {
-        if
-            contact.bodyA.categoryBitMask == CategoryMask.player.rawValue &&
-            contact.bodyB.categoryBitMask == CategoryMask.person.rawValue
-        {
-            self.actionButtonDelegate?.toggleActionButton(to: true)
+        if contact.bodyA.categoryBitMask == CategoryMask.player.rawValue {
+            switch contact.bodyB.categoryBitMask {
+            case CategoryMask.person.rawValue:
+                self.actionButtonDelegate?.toggleActionButton(to: true)
+            case CategoryMask.portal.rawValue:
+                self.sceneDelegate?.changeScene(to: ChampionSelectScene.self)
+            default:
+                break
+            }
         }
     }
 

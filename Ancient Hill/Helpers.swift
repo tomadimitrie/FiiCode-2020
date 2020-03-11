@@ -2,6 +2,16 @@ import Foundation
 import SpriteKit
 import CoreGraphics
 
+class GameScene: SKScene, HUDDelegate {
+    func hudTapped(for direction: Direction) {}
+    
+    func hudReleased(for direction: Direction) {}
+    
+    var actionButtonDelegate: ActionButtonDelegate?
+    var dialogueDelegate: DialogueDelegate?
+    var sceneDelegate: SceneDelegate?
+}
+
 class Constants {
     static let moveAmount: CGFloat = 50
     static let collisionThreshold: CGFloat = 10

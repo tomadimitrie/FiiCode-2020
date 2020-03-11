@@ -11,6 +11,8 @@
 		E209BFFE24194D0900F594AD /* DialogueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E209BFFD24194D0900F594AD /* DialogueView.swift */; };
 		E209C00124194E9000F594AD /* ThaleahFat.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E209C00024194E9000F594AD /* ThaleahFat.ttf */; };
 		E209C003241951D000F594AD /* DialogueDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E209C002241951D000F594AD /* DialogueDelegate.swift */; };
+		E209C005241959A300F594AD /* AssetsLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E209C004241959A300F594AD /* AssetsLoader.swift */; };
+		E209C00824196CF100F594AD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E209C00724196CF100F594AD /* SceneDelegate.swift */; };
 		E217346224058012005B1A94 /* HUDScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = E217346124058012005B1A94 /* HUDScene.sks */; };
 		E21734642405802E005B1A94 /* HUDScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21734632405802E005B1A94 /* HUDScene.swift */; };
 		E2AC188C2405815400B4896B /* HUDDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AC188B2405815400B4896B /* HUDDelegate.swift */; };
@@ -34,6 +36,8 @@
 		E209BFFD24194D0900F594AD /* DialogueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogueView.swift; sourceTree = "<group>"; };
 		E209C00024194E9000F594AD /* ThaleahFat.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ThaleahFat.ttf; sourceTree = "<group>"; };
 		E209C002241951D000F594AD /* DialogueDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogueDelegate.swift; sourceTree = "<group>"; };
+		E209C004241959A300F594AD /* AssetsLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsLoader.swift; sourceTree = "<group>"; };
+		E209C00724196CF100F594AD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		E217346124058012005B1A94 /* HUDScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = HUDScene.sks; sourceTree = "<group>"; };
 		E21734632405802E005B1A94 /* HUDScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDScene.swift; sourceTree = "<group>"; };
 		E2AC188B2405815400B4896B /* HUDDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDDelegate.swift; sourceTree = "<group>"; };
@@ -97,6 +101,15 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		E209C00624196CDA00F594AD /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				E2DFBF4D2401545400805804 /* GameViewController.swift */,
+				E209C00724196CF100F594AD /* SceneDelegate.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
 		E217346524058055005B1A94 /* HUD */ = {
 			isa = PBXGroup;
 			children = (
@@ -137,13 +150,14 @@
 		E2DFBF442401545400805804 /* Ancient Hill */ = {
 			isa = PBXGroup;
 			children = (
+				E209C00624196CDA00F594AD /* Main */,
 				E209BFFF24194E7600F594AD /* Fonts */,
 				E209BFFA24194CE300F594AD /* Dialogue */,
 				E21734662405805F005B1A94 /* Champion Select */,
 				E217346524058055005B1A94 /* HUD */,
 				E2DFBF452401545400805804 /* AppDelegate.swift */,
 				E2DFBF5D24015EA900805804 /* MyTileSet.sks */,
-				E2DFBF4D2401545400805804 /* GameViewController.swift */,
+				E209C004241959A300F594AD /* AssetsLoader.swift */,
 				E2DFBF5F24016D2300805804 /* Helpers.swift */,
 				E2DFBF4F2401545400805804 /* Main.storyboard */,
 				E2DFBF522401545600805804 /* Assets.xcassets */,
@@ -277,8 +291,10 @@
 			files = (
 				E2DFBF4C2401545400805804 /* ChampionSelectScene.swift in Sources */,
 				E21734642405802E005B1A94 /* HUDScene.swift in Sources */,
+				E209C005241959A300F594AD /* AssetsLoader.swift in Sources */,
 				E2AC188C2405815400B4896B /* HUDDelegate.swift in Sources */,
 				E2DFBF4E2401545400805804 /* GameViewController.swift in Sources */,
+				E209C00824196CF100F594AD /* SceneDelegate.swift in Sources */,
 				E2DFBF462401545400805804 /* AppDelegate.swift in Sources */,
 				E2DFBF6024016D2300805804 /* Helpers.swift in Sources */,
 				E209C003241951D000F594AD /* DialogueDelegate.swift in Sources */,
