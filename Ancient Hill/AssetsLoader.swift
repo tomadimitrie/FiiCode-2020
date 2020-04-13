@@ -22,10 +22,10 @@ class AssetsLoader {
         }
     }
     
-    static func textures(for atlasName: AtlasName, direction: Direction) -> [SKTexture]? {
+    static func textures(for atlasName: AtlasName, direction: Direction) -> [SKTexture] {
         if Self.assets.count == 0 {
             Self.loadAtlases()
         }
-        return Self.assets[atlasName]?[direction]
+        return Self.assets[atlasName]![direction]!
     }
 }

@@ -6,8 +6,10 @@ class GameViewController: UIViewController {
     @IBOutlet weak var hudView: SKView!
     @IBOutlet weak var gameView: SKView!
     @IBOutlet weak var dialogueView: DialogueView!
+    @IBOutlet weak var actionButtonView: SKView!
     
     var hudScene: HUDScene!
+    var actionButtonScene: ActionButtonScene!
     var currentScene: GameScene!
     
     override func viewDidLoad() {
@@ -20,6 +22,11 @@ class GameViewController: UIViewController {
             self.hudScene = hudScene
             self.hudScene.scaleMode = .aspectFill
             self.hudView.presentScene(self.hudScene)
+        }
+        if let actionButtonScene = ActionButtonScene(fileNamed: "ActionButtonScene") {
+            self.actionButtonScene = actionButtonScene
+            self.actionButtonScene.scaleMode = .aspectFill
+            self.actionButtonView.presentScene(self.actionButtonScene)
         }
         #if DEBUG
         self.gameView.showsFPS = true
@@ -50,8 +57,8 @@ extension GameViewController: SceneDelegate {
             scene.scaleMode = .aspectFill
             scene.dialogueDelegate = self.dialogueView
             scene.sceneDelegate = self
-            scene.actionButtonDelegate = self.hudScene
             self.hudScene.hudDelegate = scene
+            self.actionButtonScene.actionButtonDelegate = scene
             self.gameView.presentScene(scene, transition: SKTransition.fade(withDuration: 1))
         }
     }

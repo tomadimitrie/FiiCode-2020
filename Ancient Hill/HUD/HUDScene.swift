@@ -1,3 +1,11 @@
+//
+//  HUDScene.swift
+//  Ancient Hill
+//
+//  Created by Dimitrie-Toma Furdui on 13/04/2020.
+//  Copyright © 2020 Green Meerkats of Romania. All rights reserved.
+//
+
 import SpriteKit
 
 class HUDScene: SKScene {
@@ -51,13 +59,5 @@ class HUDScene: SKScene {
 
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.cancelAllDirections()
-    }
-}
-
-extension HUDScene: ActionButtonDelegate {
-    func toggleActionButton(to flag: Bool) {
-        if let actionButton = self.childNode(withName: "action") {
-            actionButton.isHidden = !flag
-        }
     }
 }

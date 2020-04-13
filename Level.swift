@@ -8,12 +8,12 @@
 
 import SpriteKit
 
-private enum Nodes: String {
+fileprivate enum Nodes: String {
     case player
     case tileMap
 }
 
-private enum CategoryMask: UInt32 {
+fileprivate enum Mask: UInt32 {
     case player = 0b01
     case wall   = 0b10
 }
@@ -22,7 +22,10 @@ class Level: GameScene {
     var player: SKSpriteNode!
     var tileMap: SKTileMapNode!
     
+    var isPlayerStanding = false
+    
     override func didMove(to view: SKView) {
+        self.physicsWorld.contactDelegate = self
         self.setupNodes()
         self.setupTileMap()
         self.setupPlayer()
@@ -36,9 +39,10 @@ class Level: GameScene {
     private func setupPlayer() {
         let physicsBody = SKPhysicsBody(rectangleOf: self.player.frame.size)
         physicsBody.allowsRotation = false
-        physicsBody.categoryBitMask = CategoryMask.player.rawValue
-        physicsBody.collisionBitMask = CategoryMask.wall.rawValue
-        physicsBody.contactTestBitMask = CategoryMask.wall.rawValue
+        physicsBody.categoryBitMask = Mask.player.rawValue
+        physicsBody.collisionBitMask = Mask.wall.rawValue
+        physicsBody.contactTestBitMask = Mask.wall.rawValue
+        physicsBody.restitution = 0
         self.player.physicsBody = physicsBody
     }
     
@@ -60,13 +64,15 @@ class Level: GameScene {
                         let tileY = CGFloat(row) * tileSize.height - halfHeight
                         let rect = CGRect(x: 0, y: 0, width: tileSize.width, height: tileSize.height)
                         let tileNode = SKShapeNode(rect: rect)
+                        tileNode.name = "wall"
                         tileNode.strokeColor = .clear
                         tileNode.position = CGPoint(x: tileX, y: tileY)
                         tableRow.append((type: tileName, position: tileNode.position))
                         let physicsBodyCenter = CGPoint(x: tileSize.width / 2.0, y: tileSize.height / 2.0)
                         let physicsBody = SKPhysicsBody(rectangleOf: tileSize, center: physicsBodyCenter)
                         physicsBody.isDynamic = false
-                        physicsBody.categoryBitMask = CategoryMask.wall.rawValue
+                        physicsBody.categoryBitMask = Mask.wall.rawValue
+                        physicsBody.restitution = 0
                         tileNode.physicsBody = physicsBody
                         self.tileMap.addChild(tileNode)
                         
@@ -76,6 +82,57 @@ class Level: GameScene {
                 }
             }
             table.append(tableRow)
+        }
+    }
+    
+    override func hudTapped(for direction: Direction) {
+        switch direction {
+        case .left, .right:
+            var newPosition = CGPoint.zero
+            newPosition.x += Constants.moveAmount * (direction == .left ? -1 : 1)
+            let textures = AssetsLoader.textures(for: .finnachu, direction: direction)
+            self.player.texture = textures[0]
+            let frameAction = SKAction.repeatForever(
+                SKAction.animate(with: textures, timePerFrame: 0.25, resize: false, restore: true)
+            )
+            let moveAction = SKAction.move(by: newPosition.cgVector, duration: 0.1)
+            let repeatAction = SKAction.repeatForever(moveAction)
+            let actionGroup = SKAction.group([frameAction, repeatAction])
+            self.player.run(actionGroup, withKey: direction.rawValue)
+        default:
+            return
+        }
+    }
+    
+    override func hudReleased(for direction: Direction) {
+        if direction != .top {
+            self.player.removeAction(forKey: direction.rawValue)
+        }
+    }
+    
+    override func actionTapped() {
+        if self.isPlayerStanding {
+            self.player.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 5))
+        }
+    }
+}
+
+extension Level: SKPhysicsContactDelegate {
+    func didBegin(_ contact: SKPhysicsContact) {
+        if
+            contact.bodyA.categoryBitMask == Mask.wall.rawValue &&
+            contact.bodyB.categoryBitMask == Mask.player.rawValue
+        {
+            self.isPlayerStanding = true
+        }
+    }
+    
+    func didEnd(_ contact: SKPhysicsContact) {
+        if
+            contact.bodyA.categoryBitMask == Mask.wall.rawValue &&
+            contact.bodyB.categoryBitMask == Mask.player.rawValue
+        {
+            self.isPlayerStanding = false
         }
     }
 }
