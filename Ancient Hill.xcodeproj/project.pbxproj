@@ -15,16 +15,17 @@
 		E209C00824196CF100F594AD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E209C00724196CF100F594AD /* SceneDelegate.swift */; };
 		E217346224058012005B1A94 /* HUDScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = E217346124058012005B1A94 /* HUDScene.sks */; };
 		E21734642405802E005B1A94 /* HUDScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21734632405802E005B1A94 /* HUDScene.swift */; };
+		E27BDD632444A5EC00C06EE2 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27BDD622444A5EC00C06EE2 /* Level.swift */; };
 		E2AC188C2405815400B4896B /* HUDDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AC188B2405815400B4896B /* HUDDelegate.swift */; };
+		E2B35C9224449C69001B922B /* Level1.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B35C9124449C69001B922B /* Level1.swift */; };
+		E2B35C9424449C82001B922B /* Level1.sks in Resources */ = {isa = PBXBuildFile; fileRef = E2B35C9324449C82001B922B /* Level1.sks */; };
 		E2DFBF462401545400805804 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DFBF452401545400805804 /* AppDelegate.swift */; };
-		E2DFBF4C2401545400805804 /* ChampionSelectScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DFBF4B2401545400805804 /* ChampionSelectScene.swift */; };
 		E2DFBF4E2401545400805804 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DFBF4D2401545400805804 /* GameViewController.swift */; };
 		E2DFBF512401545400805804 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2DFBF4F2401545400805804 /* Main.storyboard */; };
 		E2DFBF532401545600805804 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2DFBF522401545600805804 /* Assets.xcassets */; };
 		E2DFBF562401545700805804 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2DFBF542401545700805804 /* LaunchScreen.storyboard */; };
 		E2DFBF5E24015EA900805804 /* MyTileSet.sks in Resources */ = {isa = PBXBuildFile; fileRef = E2DFBF5D24015EA900805804 /* MyTileSet.sks */; };
 		E2DFBF6024016D2300805804 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DFBF5F24016D2300805804 /* Helpers.swift */; };
-		E2FF1D312413EB4200082D72 /* ChampionSelectScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = E2FF1D302413EB4200082D72 /* ChampionSelectScene.sks */; };
 		E913C9D44C1E075809B12A60 /* Pods_Ancient_Hill.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65CB58B4057B35FC8F4F8A29 /* Pods_Ancient_Hill.framework */; };
 /* End PBXBuildFile section */
 
@@ -40,10 +41,12 @@
 		E209C00724196CF100F594AD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		E217346124058012005B1A94 /* HUDScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = HUDScene.sks; sourceTree = "<group>"; };
 		E21734632405802E005B1A94 /* HUDScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDScene.swift; sourceTree = "<group>"; };
+		E27BDD622444A5EC00C06EE2 /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = SOURCE_ROOT; };
 		E2AC188B2405815400B4896B /* HUDDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDDelegate.swift; sourceTree = "<group>"; };
+		E2B35C9124449C69001B922B /* Level1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level1.swift; sourceTree = "<group>"; };
+		E2B35C9324449C82001B922B /* Level1.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level1.sks; sourceTree = "<group>"; };
 		E2DFBF422401545400805804 /* Ancient Hill.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Ancient Hill.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2DFBF452401545400805804 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E2DFBF4B2401545400805804 /* ChampionSelectScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionSelectScene.swift; sourceTree = "<group>"; };
 		E2DFBF4D2401545400805804 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		E2DFBF502401545400805804 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E2DFBF522401545600805804 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -51,7 +54,6 @@
 		E2DFBF572401545700805804 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E2DFBF5D24015EA900805804 /* MyTileSet.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MyTileSet.sks; sourceTree = "<group>"; };
 		E2DFBF5F24016D2300805804 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
-		E2FF1D302413EB4200082D72 /* ChampionSelectScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ChampionSelectScene.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,13 +103,14 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
-		E209C00624196CDA00F594AD /* Main */ = {
+		E209C00624196CDA00F594AD /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				E27BDD622444A5EC00C06EE2 /* Level.swift */,
 				E2DFBF4D2401545400805804 /* GameViewController.swift */,
 				E209C00724196CF100F594AD /* SceneDelegate.swift */,
 			);
-			path = Main;
+			path = Core;
 			sourceTree = "<group>";
 		};
 		E217346524058055005B1A94 /* HUD */ = {
@@ -120,13 +123,13 @@
 			path = HUD;
 			sourceTree = "<group>";
 		};
-		E21734662405805F005B1A94 /* Champion Select */ = {
+		E2B35C9024449A64001B922B /* Levels */ = {
 			isa = PBXGroup;
 			children = (
-				E2DFBF4B2401545400805804 /* ChampionSelectScene.swift */,
-				E2FF1D302413EB4200082D72 /* ChampionSelectScene.sks */,
+				E2B35C9124449C69001B922B /* Level1.swift */,
+				E2B35C9324449C82001B922B /* Level1.sks */,
 			);
-			path = "Champion Select";
+			path = Levels;
 			sourceTree = "<group>";
 		};
 		E2DFBF392401545400805804 = {
@@ -150,10 +153,10 @@
 		E2DFBF442401545400805804 /* Ancient Hill */ = {
 			isa = PBXGroup;
 			children = (
-				E209C00624196CDA00F594AD /* Main */,
+				E2B35C9024449A64001B922B /* Levels */,
+				E209C00624196CDA00F594AD /* Core */,
 				E209BFFF24194E7600F594AD /* Fonts */,
 				E209BFFA24194CE300F594AD /* Dialogue */,
-				E21734662405805F005B1A94 /* Champion Select */,
 				E217346524058055005B1A94 /* HUD */,
 				E2DFBF452401545400805804 /* AppDelegate.swift */,
 				E2DFBF5D24015EA900805804 /* MyTileSet.sks */,
@@ -232,9 +235,9 @@
 				E2DFBF532401545600805804 /* Assets.xcassets in Resources */,
 				E2DFBF5E24015EA900805804 /* MyTileSet.sks in Resources */,
 				E209C00124194E9000F594AD /* ThaleahFat.ttf in Resources */,
-				E2FF1D312413EB4200082D72 /* ChampionSelectScene.sks in Resources */,
 				E217346224058012005B1A94 /* HUDScene.sks in Resources */,
 				E2DFBF562401545700805804 /* LaunchScreen.storyboard in Resources */,
+				E2B35C9424449C82001B922B /* Level1.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,7 +292,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E2DFBF4C2401545400805804 /* ChampionSelectScene.swift in Sources */,
+				E2B35C9224449C69001B922B /* Level1.swift in Sources */,
 				E21734642405802E005B1A94 /* HUDScene.swift in Sources */,
 				E209C005241959A300F594AD /* AssetsLoader.swift in Sources */,
 				E2AC188C2405815400B4896B /* HUDDelegate.swift in Sources */,
@@ -298,6 +301,7 @@
 				E2DFBF462401545400805804 /* AppDelegate.swift in Sources */,
 				E2DFBF6024016D2300805804 /* Helpers.swift in Sources */,
 				E209C003241951D000F594AD /* DialogueDelegate.swift in Sources */,
+				E27BDD632444A5EC00C06EE2 /* Level.swift in Sources */,
 				E209BFFE24194D0900F594AD /* DialogueView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

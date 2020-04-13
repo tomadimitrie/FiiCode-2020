@@ -10,10 +10,14 @@ class GameScene: SKScene, HUDDelegate {
     var actionButtonDelegate: ActionButtonDelegate?
     var dialogueDelegate: DialogueDelegate?
     var sceneDelegate: SceneDelegate?
+    
+    override func didMove(to view: SKView) {
+        UserDefaults.standard.set(NSStringFromClass(Self.self), forKey: "currentScene")
+    }
 }
 
 class Constants {
-    static let moveAmount: CGFloat = 50
+    static let moveAmount: CGFloat = 10
     static let collisionThreshold: CGFloat = 10
 }
 

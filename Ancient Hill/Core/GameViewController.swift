@@ -27,7 +27,6 @@ class GameViewController: UIViewController {
         self.gameView.showsPhysics = true
         #endif
         self.gameView.ignoresSiblingOrder = true
-        self.changeScene(to: ChampionSelectScene.self)
     }
     
     override var shouldAutorotate: Bool {
