@@ -10,7 +10,6 @@ class GameViewController: UIViewController {
     
     var hudScene: HUDScene!
     var actionButtonScene: ActionButtonScene!
-    var currentScene: GameScene!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,16 +49,14 @@ class GameViewController: UIViewController {
 }
 
 extension GameViewController: SceneDelegate {
-    func changeScene(to scene: GameScene.Type) {
-        let sceneName = NSStringFromClass(scene).components(separatedBy: ".").last!
-        if let scene = scene.init(fileNamed: sceneName) {
-            self.currentScene = scene
-            scene.scaleMode = .aspectFill
-            scene.dialogueDelegate = self.dialogueView
-            scene.sceneDelegate = self
-            self.hudScene.hudDelegate = scene
-            self.actionButtonScene.actionButtonDelegate = scene
-            self.gameView.presentScene(scene, transition: SKTransition.fade(withDuration: 1))
-        }
+    func changeScene(to sceneType: GameScene.Type) {
+        let sceneName = NSStringFromClass(sceneType).components(separatedBy: ".").last!
+        let scene = sceneType.init(fileNamed: sceneName)!
+        scene.scaleMode = .aspectFill
+        scene.dialogueDelegate = self.dialogueView
+        scene.sceneDelegate = self
+        self.hudScene.hudDelegate = scene
+        self.actionButtonScene.actionButtonDelegate = scene
+        self.gameView.presentScene(scene)
     }
 }
