@@ -14,7 +14,7 @@ class Level4: Level2 {
         let contactMask = contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask
         switch contactMask {
         case Mask.player.rawValue | Mask.wall.rawValue:
-            self.physicsWorld.gravity = .zero
+            self.physicsWorld.gravity = CGVector(dx: 0, dy: -9.8 * (self.isGravityInversed ? -1 : 1))
         default:
             break
         }
@@ -25,8 +25,7 @@ class Level4: Level2 {
         newPosition.y += Constants.moveAmount * (direction == .bottom ? -1 : 1)
         let moveAction = SKAction.move(by: newPosition.cgVector, duration: 0.1)
         let repeatAction = SKAction.repeatForever(moveAction)
+        self.physicsWorld.gravity = .zero
         self.player.run(repeatAction, withKey: direction.rawValue)
     }
-    
-    override func actionTapped() {}
 }

@@ -30,6 +30,8 @@ class Level: GameScene {
     var tileMap: SKTileMapNode!
     var portal: SKSpriteNode!
     
+    var label = SKLabelNode()
+    
     var isPlayerStanding = false
     var isGravityInversed = false
     
@@ -40,12 +42,14 @@ class Level: GameScene {
         self.setupPortal()
         self.setupTileMap()
         self.setupPlayer()
+        self.showLabel(with: "Level \(NSStringFromClass(Self.self).last!)")
     }
     
     private func setupNodes() {
         self.player = self.childNode(withName: Nodes.player.rawValue) as? SKSpriteNode
         self.tileMap = self.childNode(withName: Nodes.tileMap.rawValue) as? SKTileMapNode
         self.portal = self.childNode(withName: Nodes.portal.rawValue) as? SKSpriteNode
+        self.addChild(self.label)
     }
     
     private func setupPortal() {
@@ -56,7 +60,9 @@ class Level: GameScene {
     }
     
     private func setupPlayer() {
-        let physicsBody = SKPhysicsBody(rectangleOf: self.player.frame.size)
+        var rect = self.player.frame.size
+        rect.width -= 5
+        let physicsBody = SKPhysicsBody(rectangleOf: rect)
         physicsBody.allowsRotation = false
         physicsBody.categoryBitMask = Mask.player.rawValue
         physicsBody.collisionBitMask = Mask.wall.rawValue | Mask.portal.rawValue
@@ -65,6 +71,20 @@ class Level: GameScene {
         self.player.physicsBody = physicsBody
     }
     
+    private func showLabel(with text: String, completionHandler: @escaping () -> Void = {}) {
+        self.label.text = text
+        self.label.fontName = "ThaleahFat"
+        self.label.fontSize = 20
+        self.label.position = .zero
+        self.label.alpha = 0
+        self.label.run(.sequence([
+            .fadeAlpha(by: 1, duration: 1),
+            .wait(forDuration: 1),
+            .fadeAlpha(by: -1, duration: 1),
+            .run(completionHandler)
+        ]))
+    }
+        
     private func setupTileMap() {
         self.tileMap.isHidden = true
         let tileSize = self.tileMap.tileSize
@@ -139,7 +159,7 @@ class Level: GameScene {
     
     override func actionTapped() {
         if self.isPlayerStanding {
-            self.player.physicsBody?.applyImpulse(.init(dx: 0, dy: 5))
+            self.player.physicsBody?.applyImpulse(.init(dx: 0, dy: 3))
         }
     }
     
@@ -150,9 +170,13 @@ class Level: GameScene {
                     $0.node?.physicsBody?.categoryBitMask == Mask.wall.rawValue
                 })
         }
-        if self.player.position.y < -self.size.height / 2 {
-            self.player.removeFromParent()
-            self.sceneDelegate?.changeScene(to: Self.self)
+        if self.player.position.y < -self.size.height / 2 || self.player.position.y > self.size.height / 2 {
+            if self.player.parent != nil {
+                self.player.removeFromParent()
+                self.showLabel(with: "Failed") { [weak self] in
+                    self?.sceneDelegate?.changeScene(to: Self.self)
+                }
+            }
         }
     }
 }

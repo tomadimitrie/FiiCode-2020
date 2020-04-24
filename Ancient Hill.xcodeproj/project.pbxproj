@@ -15,12 +15,16 @@
 		E209C00824196CF100F594AD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E209C00724196CF100F594AD /* SceneDelegate.swift */; };
 		E217346224058012005B1A94 /* HUDScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = E217346124058012005B1A94 /* HUDScene.sks */; };
 		E21734642405802E005B1A94 /* HUDScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21734632405802E005B1A94 /* HUDScene.swift */; };
+		E21D51C0244A03C00092D9AC /* Level5.sks in Resources */ = {isa = PBXBuildFile; fileRef = E21D51BF244A03C00092D9AC /* Level5.sks */; };
+		E21D51C2244A040E0092D9AC /* Level5.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21D51C1244A040E0092D9AC /* Level5.swift */; };
 		E25F33642448D29100328DEF /* Level3.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25F33632448D29100328DEF /* Level3.swift */; };
 		E25F33682448D2D300328DEF /* Level3.sks in Resources */ = {isa = PBXBuildFile; fileRef = E25F33672448D2D300328DEF /* Level3.sks */; };
 		E25F336B2448D48000328DEF /* Level4.sks in Resources */ = {isa = PBXBuildFile; fileRef = E25F336A2448D48000328DEF /* Level4.sks */; };
 		E25F336D2448D48900328DEF /* Level4.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25F336C2448D48900328DEF /* Level4.swift */; };
 		E27BDD632444A5EC00C06EE2 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27BDD622444A5EC00C06EE2 /* Level.swift */; };
 		E28795A2244775B700EA0078 /* Level1.sks in Resources */ = {isa = PBXBuildFile; fileRef = E28795A1244775B700EA0078 /* Level1.sks */; };
+		E2A3722C24534EDF00FB9AB1 /* Level6.sks in Resources */ = {isa = PBXBuildFile; fileRef = E2A3722B24534EDF00FB9AB1 /* Level6.sks */; };
+		E2A3722E24534EE800FB9AB1 /* Level6.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A3722D24534EE800FB9AB1 /* Level6.swift */; };
 		E2AC188C2405815400B4896B /* HUDDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AC188B2405815400B4896B /* HUDDelegate.swift */; };
 		E2AE84202444AFCA0060B529 /* ActionButtonScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AE841F2444AFCA0060B529 /* ActionButtonScene.swift */; };
 		E2AE84222444B0050060B529 /* ActionButtonScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = E2AE84212444B0050060B529 /* ActionButtonScene.sks */; };
@@ -51,12 +55,16 @@
 		E209C00724196CF100F594AD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		E217346124058012005B1A94 /* HUDScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = HUDScene.sks; sourceTree = "<group>"; };
 		E21734632405802E005B1A94 /* HUDScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDScene.swift; sourceTree = "<group>"; };
+		E21D51BF244A03C00092D9AC /* Level5.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level5.sks; sourceTree = "<group>"; };
+		E21D51C1244A040E0092D9AC /* Level5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level5.swift; sourceTree = "<group>"; };
 		E25F33632448D29100328DEF /* Level3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level3.swift; sourceTree = "<group>"; };
 		E25F33672448D2D300328DEF /* Level3.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level3.sks; sourceTree = "<group>"; };
 		E25F336A2448D48000328DEF /* Level4.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level4.sks; sourceTree = "<group>"; };
 		E25F336C2448D48900328DEF /* Level4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level4.swift; sourceTree = "<group>"; };
 		E27BDD622444A5EC00C06EE2 /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = SOURCE_ROOT; };
 		E28795A1244775B700EA0078 /* Level1.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level1.sks; sourceTree = "<group>"; };
+		E2A3722B24534EDF00FB9AB1 /* Level6.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level6.sks; sourceTree = "<group>"; };
+		E2A3722D24534EE800FB9AB1 /* Level6.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level6.swift; sourceTree = "<group>"; };
 		E2AC188B2405815400B4896B /* HUDDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDDelegate.swift; sourceTree = "<group>"; };
 		E2AE841F2444AFCA0060B529 /* ActionButtonScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButtonScene.swift; sourceTree = "<group>"; };
 		E2AE84212444B0050060B529 /* ActionButtonScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ActionButtonScene.sks; sourceTree = "<group>"; };
@@ -147,6 +155,15 @@
 			path = HUD;
 			sourceTree = "<group>";
 		};
+		E21D51BE244A03610092D9AC /* 5 */ = {
+			isa = PBXGroup;
+			children = (
+				E21D51BF244A03C00092D9AC /* Level5.sks */,
+				E21D51C1244A040E0092D9AC /* Level5.swift */,
+			);
+			path = 5;
+			sourceTree = "<group>";
+		};
 		E25F33622448CFE000328DEF /* 3 */ = {
 			isa = PBXGroup;
 			children = (
@@ -165,9 +182,20 @@
 			path = 4;
 			sourceTree = "<group>";
 		};
+		E2A3722A24534EC600FB9AB1 /* 6 */ = {
+			isa = PBXGroup;
+			children = (
+				E2A3722B24534EDF00FB9AB1 /* Level6.sks */,
+				E2A3722D24534EE800FB9AB1 /* Level6.swift */,
+			);
+			path = 6;
+			sourceTree = "<group>";
+		};
 		E2B35C9024449A64001B922B /* Levels */ = {
 			isa = PBXGroup;
 			children = (
+				E2A3722A24534EC600FB9AB1 /* 6 */,
+				E21D51BE244A03610092D9AC /* 5 */,
 				E25F33692448D47800328DEF /* 4 */,
 				E25F33622448CFE000328DEF /* 3 */,
 				E2F04B822448A8BC0038AB51 /* 2 */,
@@ -301,9 +329,11 @@
 				E2DFBF5E24015EA900805804 /* MyTileSet.sks in Resources */,
 				E209C00124194E9000F594AD /* ThaleahFat.ttf in Resources */,
 				E217346224058012005B1A94 /* HUDScene.sks in Resources */,
+				E2A3722C24534EDF00FB9AB1 /* Level6.sks in Resources */,
 				E2DFBF562401545700805804 /* LaunchScreen.storyboard in Resources */,
 				E2F04B842448A8C80038AB51 /* Level2.sks in Resources */,
 				E25F33682448D2D300328DEF /* Level3.sks in Resources */,
+				E21D51C0244A03C00092D9AC /* Level5.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,6 +388,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E21D51C2244A040E0092D9AC /* Level5.swift in Sources */,
 				E2F04B862448A8DF0038AB51 /* Level2.swift in Sources */,
 				E2B35C9224449C69001B922B /* Level1.swift in Sources */,
 				E25F33642448D29100328DEF /* Level3.swift in Sources */,
@@ -375,6 +406,7 @@
 				E209BFFE24194D0900F594AD /* DialogueView.swift in Sources */,
 				E2AE84262444B2DE0060B529 /* GameScene.swift in Sources */,
 				E2AE84202444AFCA0060B529 /* ActionButtonScene.swift in Sources */,
+				E2A3722E24534EE800FB9AB1 /* Level6.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
