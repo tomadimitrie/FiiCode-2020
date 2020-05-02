@@ -12,6 +12,10 @@ class CreditsViewController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var imageView: UIImageView!
     
+    @IBAction func goToMenu(_ sender: UIButton, forEvent event: UIEvent) {
+        self.performSegue(withIdentifier: "menu", sender: self)
+    }
+    
     var confettiView: SwiftConfettiView!
     
     override func viewDidLoad() {

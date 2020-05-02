@@ -76,13 +76,13 @@ the lost Puzzle</string>
                                 <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose level" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dAq-gQ-w70">
-                                <rect key="frame" x="295.33333333333337" y="56" width="308.33333333333337" height="48.666666666666657"/>
+                                <rect key="frame" x="297" y="56" width="305.33333333333326" height="62"/>
                                 <fontDescription key="fontDescription" name="ThaleahFat" family="ThaleahFat" pointSize="53"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="6n0-tx-yan">
-                                <rect key="frame" x="94" y="129.66666666666663" width="708" height="248.33333333333337"/>
+                                <rect key="frame" x="94" y="143" width="708" height="235"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="5kQ-I1-YgK">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -101,7 +101,7 @@ the lost Puzzle</string>
                                                     <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iao-DA-3Kg">
-                                                    <rect key="frame" x="20.333333333333336" y="48" width="87.666666666666657" height="32.333333333333343"/>
+                                                    <rect key="frame" x="21.333333333333336" y="43.666666666666657" width="85.666666666666657" height="41"/>
                                                     <fontDescription key="fontDescription" name="ThaleahFat" family="ThaleahFat" pointSize="35"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -246,15 +246,10 @@ the lost Puzzle</string>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LYI-C0-Hf7">
                                         <rect key="frame" x="0.0" y="0.0" width="768" height="1000"/>
                                         <subviews>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KFJ-rk-XvB">
-                                                <rect key="frame" x="96" y="646" width="576" height="329"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="KFJ-rk-XvB" secondAttribute="height" multiplier="7:4" id="pZO-7f-Cci"/>
-                                                </constraints>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KFJ-rk-XvB">
+                                                <rect key="frame" x="96" y="695.33333333333337" width="576" height="269.66666666666663"/>
                                                 <string key="text">Thanks to Finnachu for finding the lost puzzle in this world where we are all lost and for showing us that we can all find ourselves if we really want
-
 Special thanks to The Green Meerkats, for making Finnachu's wish become true
-
 And most of all
 You, for showing us that if you don't give up, you can do anything</string>
                                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -268,13 +263,25 @@ You, for showing us that if you don't give up, you can do anything</string>
                                                     <constraint firstAttribute="width" secondItem="VPY-Tz-TfT" secondAttribute="height" id="CyU-ZH-9sN"/>
                                                 </constraints>
                                             </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vGy-5c-rtq">
+                                                <rect key="frame" x="326.66666666666669" y="965" width="115" height="35"/>
+                                                <fontDescription key="fontDescription" name="ThaleahFat" family="ThaleahFat" pointSize="25"/>
+                                                <state key="normal" title="Go to menu">
+                                                    <color key="titleColor" red="0.48627450980392156" green="0.70588235294117641" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="goToMenu:forEvent:" destination="RNS-a3-ost" eventType="touchUpInside" id="KeT-ao-uaf"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="vGy-5c-rtq" secondAttribute="bottom" id="DjJ-ci-29F"/>
                                             <constraint firstItem="KFJ-rk-XvB" firstAttribute="width" secondItem="LYI-C0-Hf7" secondAttribute="width" multiplier="0.75" id="Ffp-4B-KPa"/>
                                             <constraint firstItem="KFJ-rk-XvB" firstAttribute="centerX" secondItem="LYI-C0-Hf7" secondAttribute="centerX" id="Kb2-ZH-fhu"/>
+                                            <constraint firstItem="vGy-5c-rtq" firstAttribute="centerX" secondItem="LYI-C0-Hf7" secondAttribute="centerX" id="LbX-oK-ovU"/>
                                             <constraint firstItem="VPY-Tz-TfT" firstAttribute="centerX" secondItem="LYI-C0-Hf7" secondAttribute="centerX" id="N9z-L2-51q"/>
                                             <constraint firstItem="VPY-Tz-TfT" firstAttribute="top" secondItem="LYI-C0-Hf7" secondAttribute="top" constant="50" id="gVW-sz-RAw"/>
-                                            <constraint firstAttribute="bottom" secondItem="KFJ-rk-XvB" secondAttribute="bottom" constant="25" id="ne6-kW-K1A"/>
+                                            <constraint firstItem="vGy-5c-rtq" firstAttribute="top" secondItem="KFJ-rk-XvB" secondAttribute="bottom" id="vRo-UP-2vM"/>
                                             <constraint firstAttribute="height" constant="1000" id="y8F-Qc-HAT"/>
                                         </constraints>
                                     </view>
@@ -308,6 +315,7 @@ You, for showing us that if you don't give up, you can do anything</string>
                         <outlet property="imageView" destination="VPY-Tz-TfT" id="xif-1b-dCu"/>
                         <outlet property="scrollView" destination="vLA-xI-IDu" id="Cmf-Kf-Rzu"/>
                         <segue destination="543-4w-TRi" kind="show" identifier="end" id="xjK-pW-eAv"/>
+                        <segue destination="Y0L-wN-hau" kind="show" identifier="menu" id="OuF-aP-yVg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lCn-YB-tOV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -323,7 +331,7 @@ You, for showing us that if you don't give up, you can do anything</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The End" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PuH-DT-HGu">
-                                <rect key="frame" x="366.66666666666669" y="173.66666666666666" width="163.00000000000006" height="46"/>
+                                <rect key="frame" x="366.66666666666669" y="173.66666666666666" width="162.66666666666669" height="46"/>
                                 <fontDescription key="fontDescription" name="ThaleahFat" family="ThaleahFat" pointSize="50"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -347,7 +355,7 @@ You, for showing us that if you don't give up, you can do anything</string>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="fhc-mA-FTS"/>
+        <segue reference="OuF-aP-yVg"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="background" width="272" height="160"/>
