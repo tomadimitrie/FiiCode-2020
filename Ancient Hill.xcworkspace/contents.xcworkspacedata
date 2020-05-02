@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:Ancient Hill.xcodeproj">
+      location = "group:/Users/toma/Developer/FiiCode-2020/In Search of the Lost Puzzle.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">

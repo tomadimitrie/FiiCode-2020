@@ -36,6 +36,10 @@
 		E2AFFDCE245DD4C900571A16 /* Level7.sks in Resources */ = {isa = PBXBuildFile; fileRef = E2AFFDCD245DD4C900571A16 /* Level7.sks */; };
 		E2AFFDD1245DD9B000571A16 /* Level8.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AFFDD0245DD9B000571A16 /* Level8.swift */; };
 		E2AFFDD3245DD9BC00571A16 /* Level8.sks in Resources */ = {isa = PBXBuildFile; fileRef = E2AFFDD2245DD9BC00571A16 /* Level8.sks */; };
+		E2AFFDD6245DE30600571A16 /* Level9.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AFFDD5245DE30600571A16 /* Level9.swift */; };
+		E2AFFDDB245DE76300571A16 /* Level10.sks in Resources */ = {isa = PBXBuildFile; fileRef = E2AFFDDA245DE76300571A16 /* Level10.sks */; };
+		E2AFFDDD245DE77000571A16 /* Level10.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AFFDDC245DE77000571A16 /* Level10.swift */; };
+		E2AFFDDF245DEE8100571A16 /* Level9.sks in Resources */ = {isa = PBXBuildFile; fileRef = E2AFFDDE245DEE8100571A16 /* Level9.sks */; };
 		E2B35C9224449C69001B922B /* Level1.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B35C9124449C69001B922B /* Level1.swift */; };
 		E2DFBF462401545400805804 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DFBF452401545400805804 /* AppDelegate.swift */; };
 		E2DFBF4E2401545400805804 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DFBF4D2401545400805804 /* GameViewController.swift */; };
@@ -82,6 +86,10 @@
 		E2AFFDCD245DD4C900571A16 /* Level7.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level7.sks; sourceTree = "<group>"; };
 		E2AFFDD0245DD9B000571A16 /* Level8.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level8.swift; sourceTree = "<group>"; };
 		E2AFFDD2245DD9BC00571A16 /* Level8.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level8.sks; sourceTree = "<group>"; };
+		E2AFFDD5245DE30600571A16 /* Level9.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level9.swift; sourceTree = "<group>"; };
+		E2AFFDDA245DE76300571A16 /* Level10.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level10.sks; sourceTree = "<group>"; };
+		E2AFFDDC245DE77000571A16 /* Level10.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level10.swift; sourceTree = "<group>"; };
+		E2AFFDDE245DEE8100571A16 /* Level9.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level9.sks; sourceTree = "<group>"; };
 		E2B35C9124449C69001B922B /* Level1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level1.swift; sourceTree = "<group>"; };
 		E2DFBF422401545400805804 /* Ancient Hill.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Ancient Hill.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2DFBF452401545400805804 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -223,9 +231,29 @@
 			path = 8;
 			sourceTree = "<group>";
 		};
+		E2AFFDD4245DE2FA00571A16 /* 9 */ = {
+			isa = PBXGroup;
+			children = (
+				E2AFFDDE245DEE8100571A16 /* Level9.sks */,
+				E2AFFDD5245DE30600571A16 /* Level9.swift */,
+			);
+			path = 9;
+			sourceTree = "<group>";
+		};
+		E2AFFDD9245DE75800571A16 /* 10 */ = {
+			isa = PBXGroup;
+			children = (
+				E2AFFDDA245DE76300571A16 /* Level10.sks */,
+				E2AFFDDC245DE77000571A16 /* Level10.swift */,
+			);
+			path = 10;
+			sourceTree = "<group>";
+		};
 		E2B35C9024449A64001B922B /* Levels */ = {
 			isa = PBXGroup;
 			children = (
+				E2AFFDD9245DE75800571A16 /* 10 */,
+				E2AFFDD4245DE2FA00571A16 /* 9 */,
 				E2AFFDCF245DD99F00571A16 /* 8 */,
 				E2AFFDCA245DD4B500571A16 /* 7 */,
 				E2A3722A24534EC600FB9AB1 /* 6 */,
@@ -331,7 +359,7 @@
 					};
 				};
 			};
-			buildConfigurationList = E2DFBF3D2401545400805804 /* Build configuration list for PBXProject "Ancient Hill" */;
+			buildConfigurationList = E2DFBF3D2401545400805804 /* Build configuration list for PBXProject "In Search of the Lost Puzzle" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -360,8 +388,10 @@
 				E2AE84222444B0050060B529 /* ActionButtonScene.sks in Resources */,
 				E2DFBF532401545600805804 /* Assets.xcassets in Resources */,
 				E25F336B2448D48000328DEF /* Level4.sks in Resources */,
+				E2AFFDDF245DEE8100571A16 /* Level9.sks in Resources */,
 				E2DFBF5E24015EA900805804 /* MyTileSet.sks in Resources */,
 				E209C00124194E9000F594AD /* ThaleahFat.ttf in Resources */,
+				E2AFFDDB245DE76300571A16 /* Level10.sks in Resources */,
 				E217346224058012005B1A94 /* HUDScene.sks in Resources */,
 				E2AFFDD3245DD9BC00571A16 /* Level8.sks in Resources */,
 				E2A3722C24534EDF00FB9AB1 /* Level6.sks in Resources */,
@@ -424,8 +454,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2AFFDD6245DE30600571A16 /* Level9.swift in Sources */,
 				E21D51C2244A040E0092D9AC /* Level5.swift in Sources */,
 				E2F04B862448A8DF0038AB51 /* Level2.swift in Sources */,
+				E2AFFDDD245DE77000571A16 /* Level10.swift in Sources */,
 				E2B35C9224449C69001B922B /* Level1.swift in Sources */,
 				E25F33642448D29100328DEF /* Level3.swift in Sources */,
 				E2AFFDD1245DD9B000571A16 /* Level8.swift in Sources */,
@@ -629,7 +661,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E2DFBF3D2401545400805804 /* Build configuration list for PBXProject "Ancient Hill" */ = {
+		E2DFBF3D2401545400805804 /* Build configuration list for PBXProject "In Search of the Lost Puzzle" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E2DFBF582401545700805804 /* Debug */,

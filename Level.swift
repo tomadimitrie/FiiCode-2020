@@ -12,12 +12,14 @@ enum Nodes: String {
     case player
     case tileMap
     case portal
+    case arrow
 }
 
 enum Mask: UInt32, CaseIterable {
     case player    = 0b00000001
     case wall      = 0b00000010
     case portal    = 0b00000100
+    case arrow     = 0b00001000
     case `default` = 0b11111111
     
     static func fromType(_ type: String) -> Self {
@@ -35,6 +37,19 @@ class Level: GameScene {
     var isPlayerStanding = false
     var isGravityInversed = false
     
+    func getLevelNumber(from string: String) -> Int {
+        if
+            let regex = try? NSRegularExpression(pattern: #"Level(\d+)$"#, options: .caseInsensitive),
+            let match = regex.firstMatch(in: string, options: [], range: NSRange(location: 0, length: string.utf16.count)),
+            let numberRange = Range(match.range(at: 1), in: string),
+            let number = Int(string[numberRange])
+        {
+            return number
+        } else {
+            fatalError()
+        }
+    }
+    
     override func didMove(to view: SKView) {
         super.didMove(to: view)
         self.physicsWorld.contactDelegate = self
@@ -42,7 +57,8 @@ class Level: GameScene {
         self.setupPortal()
         self.setupTileMap()
         self.setupPlayer()
-        self.showLabel(with: "Level \(NSStringFromClass(Self.self).last!)")
+        let levelString = String(NSStringFromClass(Self.self))
+        self.showLabel(with: "Level \(self.getLevelNumber(from: levelString))")
     }
     
     private func setupNodes() {
@@ -66,7 +82,7 @@ class Level: GameScene {
         physicsBody.allowsRotation = false
         physicsBody.categoryBitMask = Mask.player.rawValue
         physicsBody.collisionBitMask = Mask.wall.rawValue | Mask.portal.rawValue
-        physicsBody.contactTestBitMask = Mask.wall.rawValue | Mask.portal.rawValue
+        physicsBody.contactTestBitMask = Mask.wall.rawValue | Mask.portal.rawValue | Mask.arrow.rawValue
         physicsBody.restitution = 0
         self.player.physicsBody = physicsBody
     }
@@ -84,7 +100,7 @@ class Level: GameScene {
             .run(completionHandler)
         ]))
     }
-        
+    
     private func setupTileMap() {
         self.tileMap.isHidden = true
         let tileSize = self.tileMap.tileSize
@@ -171,11 +187,15 @@ class Level: GameScene {
                 })
         }
         if self.player.position.y < -self.size.height / 2 || self.player.position.y > self.size.height / 2 {
-            if self.player.parent != nil {
-                self.player.removeFromParent()
-                self.showLabel(with: "Failed") { [weak self] in
-                    self?.sceneDelegate?.changeScene(to: Self.self)
-                }
+            self.levelFailed()
+        }
+    }
+    
+    func levelFailed() {
+        if self.player.parent != nil {
+            self.player.removeFromParent()
+            self.showLabel(with: "Failed") { [weak self] in
+                self?.sceneDelegate?.changeScene(to: Self.self)
             }
         }
     }
@@ -186,9 +206,10 @@ extension Level: SKPhysicsContactDelegate {
         let contactMask = contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask
         switch contactMask {
         case Mask.player.rawValue | Mask.portal.rawValue:
-            let currentClassString = NSStringFromClass(Self.self)
-            let nextLevelNumber = Int(String(currentClassString.last!))! + 1
-            let nextClassString = String(currentClassString.prefix(currentClassString.count - 1) + String(nextLevelNumber))
+            let currentClassString = String(NSStringFromClass(Self.self))
+            let levelNumber = self.getLevelNumber(from: currentClassString)
+            let nextLevelNumber = levelNumber + 1
+            let nextClassString = "Ancient_Hill.Level\(nextLevelNumber)"
             UserDefaults.standard.set(true, forKey: "level-\(nextLevelNumber)")
             self.sceneDelegate?.changeScene(to: NSClassFromString(nextClassString) as! Level.Type)
         default:
