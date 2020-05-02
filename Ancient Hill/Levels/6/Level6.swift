@@ -1,5 +1,5 @@
 //
-//  LevelX.swift
+//  Level6.swift
 //  Ancient Hill
 //
 //  Created by Dimitrie-Toma Furdui on 24/04/2020.
@@ -9,6 +9,10 @@
 import SpriteKit
 
 class Level6: Level {
+    override var helpText: String? {
+        "It's... obvious"
+    }
+    
     override func didBegin(_ contact: SKPhysicsContact) {
         super.didBegin(contact)
         for nodeName in [contact.bodyA.node?.name, contact.bodyB.node?.name].compactMap({ $0 }) {

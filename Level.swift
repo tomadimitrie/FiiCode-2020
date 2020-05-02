@@ -189,6 +189,7 @@ extension Level: SKPhysicsContactDelegate {
             let currentClassString = NSStringFromClass(Self.self)
             let nextLevelNumber = Int(String(currentClassString.last!))! + 1
             let nextClassString = String(currentClassString.prefix(currentClassString.count - 1) + String(nextLevelNumber))
+            UserDefaults.standard.set(true, forKey: "level-\(nextLevelNumber)")
             self.sceneDelegate?.changeScene(to: NSClassFromString(nextClassString) as! Level.Type)
         default:
             break

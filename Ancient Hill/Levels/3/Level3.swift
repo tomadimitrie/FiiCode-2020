@@ -8,4 +8,8 @@
 
 import SpriteKit
 
-class Level3: Level2 {}
+class Level3: Level2 {
+    override var helpText: String? {
+        "It's like the previous level..."
+    }
+}

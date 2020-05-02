@@ -10,6 +10,10 @@ import SpriteKit
 import CoreMotion
 
 class Level2: Level {
+    override var helpText: String? {
+        "You can't jump that distance, but you can try controlling the gravity ;) (or the phone orientation)"
+    }
+    
     let motionManager = CMMotionManager()
     var lastOrientation = UIInterfaceOrientation.landscapeLeft
     

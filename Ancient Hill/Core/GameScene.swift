@@ -18,6 +18,10 @@ class GameScene: SKScene, HUDDelegate, ActionButtonDelegate {
     var dialogueDelegate: DialogueDelegate?
     var sceneDelegate: SceneDelegate?
     
+    var helpText: String? {
+        nil
+    }
+    
     override func didMove(to view: SKView) {
         UserDefaults.standard.set(NSStringFromClass(Self.self), forKey: "currentScene")
     }

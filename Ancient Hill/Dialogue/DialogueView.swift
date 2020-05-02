@@ -3,10 +3,8 @@ import UIKit
 class DialogueView: UIView {
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var textView: UITextView!
-    @IBOutlet weak var personImageView: UIImageView!
-    @IBOutlet weak var personLabel: UILabel!
     
-    private var texts = [DialogueText]()
+    private var texts = [String]()
     private var index = 0
     private var timer: Timer?
     
@@ -34,7 +32,7 @@ class DialogueView: UIView {
         if let timer = self.timer {
             timer.invalidate()
             self.timer = nil
-            self.textView.text = self.texts[index].text
+            self.textView.text = self.texts[index]
         } else {
             if index != self.texts.count - 1 {
                 self.index += 1
@@ -45,16 +43,14 @@ class DialogueView: UIView {
         }
     }
     
-    private func setText(to text: DialogueText) {
-        guard text.text != "" else { return }
-        self.personLabel.text = text.name.rawValue
-        self.personImageView.image = UIImage(named: text.name.rawValue)
+    private func setText(to text: String) {
+        guard text != "" else { return }
         if let timer = self.timer {
             timer.invalidate()
             self.timer = nil
         }
         self.textView.text = ""
-        let characters = Array(text.text)
+        let characters = Array(text)
         var currentLetterIndex = 0
         self.timer = Timer.scheduledTimer(withTimeInterval: 0.05, repeats: true) { timer in
             self.textView.text += String(characters[currentLetterIndex])
@@ -80,7 +76,7 @@ extension DialogueView: DialogueDelegate {
             self.alpha = flag ? 1.0 : 0.0
         }
     }
-    func changeTexts(to texts: [DialogueText]) {
+    func changeTexts(to texts: [String]) {
         self.texts = texts
         self.index = 0
         self.setText(to: self.texts.first!)

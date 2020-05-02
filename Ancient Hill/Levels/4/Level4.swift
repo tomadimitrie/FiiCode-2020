@@ -9,6 +9,11 @@
 import SpriteKit
 
 class Level4: Level2 {
+    
+    override var helpText: String? {
+        "Something tells me you have a button on the screen that didn't work (until now)"
+    }
+    
     override func didBegin(_ contact: SKPhysicsContact) {
         super.didBegin(contact)
         let contactMask = contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask

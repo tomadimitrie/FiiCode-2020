@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_5" orientation="landscape" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,8 +15,6 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DialogueView" customModule="Ancient_Hill" customModuleProvider="target">
             <connections>
                 <outlet property="contentView" destination="iN0-l3-epB" id="xXo-p9-NXD"/>
-                <outlet property="personImageView" destination="tO4-lJ-NQE" id="q2G-1E-FFU"/>
-                <outlet property="personLabel" destination="Iut-1c-m5b" id="Nic-qU-M3p"/>
                 <outlet property="textView" destination="8uc-wi-ugV" id="i5K-wZ-ibV"/>
             </connections>
         </placeholder>
@@ -29,37 +27,19 @@
                     <rect key="frame" x="44" y="186" width="808" height="207"/>
                 </imageView>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8uc-wi-ugV">
-                    <rect key="frame" x="199.66666666666669" y="270.33333333333331" width="627.33333333333326" height="38.333333333333314"/>
+                    <rect key="frame" x="69" y="270.33333333333331" width="758" height="38.333333333333314"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <fontDescription key="fontDescription" name="ThaleahFat" family="ThaleahFat" pointSize="22"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tO4-lJ-NQE">
-                    <rect key="frame" x="94" y="237.66666666666666" width="103.66666666666669" height="103.66666666666666"/>
-                    <constraints>
-                        <constraint firstAttribute="width" secondItem="tO4-lJ-NQE" secondAttribute="height" id="dm4-tQ-5YT"/>
-                    </constraints>
-                </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iut-1c-m5b">
-                    <rect key="frame" x="94" y="346.33333333333331" width="103.66666666666669" height="0.0"/>
-                    <fontDescription key="fontDescription" name="ThaleahFat" family="ThaleahFat" pointSize="20"/>
-                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <nil key="highlightedColor"/>
-                </label>
             </subviews>
             <constraints>
-                <constraint firstItem="8uc-wi-ugV" firstAttribute="leading" secondItem="tO4-lJ-NQE" secondAttribute="trailing" constant="2" id="2jf-uu-TUh"/>
-                <constraint firstItem="tO4-lJ-NQE" firstAttribute="leading" secondItem="ldM-RA-2qB" secondAttribute="leading" constant="50" id="3IJ-8J-758"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="ldM-RA-2qB" secondAttribute="trailing" id="5Zb-EV-TNx"/>
-                <constraint firstItem="Iut-1c-m5b" firstAttribute="leading" secondItem="tO4-lJ-NQE" secondAttribute="leading" id="9oA-nO-eLv"/>
                 <constraint firstItem="8uc-wi-ugV" firstAttribute="top" relation="greaterThanOrEqual" secondItem="ldM-RA-2qB" secondAttribute="top" constant="25" id="IZq-LG-bn4"/>
-                <constraint firstItem="tO4-lJ-NQE" firstAttribute="height" secondItem="ldM-RA-2qB" secondAttribute="height" multiplier="0.5" id="PKd-Th-WgZ"/>
-                <constraint firstItem="Iut-1c-m5b" firstAttribute="top" secondItem="tO4-lJ-NQE" secondAttribute="bottom" constant="5" id="SEA-7N-dJN"/>
+                <constraint firstItem="8uc-wi-ugV" firstAttribute="leading" secondItem="ldM-RA-2qB" secondAttribute="leading" constant="25" id="MvA-PF-MWF"/>
                 <constraint firstItem="8uc-wi-ugV" firstAttribute="bottom" relation="lessThanOrEqual" secondItem="ldM-RA-2qB" secondAttribute="bottom" constant="-25" id="SMD-My-4vW"/>
                 <constraint firstItem="8uc-wi-ugV" firstAttribute="trailing" secondItem="ldM-RA-2qB" secondAttribute="trailing" constant="-25" id="UVS-Av-4jo"/>
                 <constraint firstItem="ldM-RA-2qB" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.5" id="aS1-Hg-2K5"/>
-                <constraint firstItem="tO4-lJ-NQE" firstAttribute="centerY" secondItem="ldM-RA-2qB" secondAttribute="centerY" id="bab-yV-p1o"/>
-                <constraint firstItem="Iut-1c-m5b" firstAttribute="trailing" secondItem="tO4-lJ-NQE" secondAttribute="trailing" id="ecx-r7-df1"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="ldM-RA-2qB" secondAttribute="bottom" id="hM1-KN-QyD"/>
                 <constraint firstItem="8uc-wi-ugV" firstAttribute="centerY" secondItem="ldM-RA-2qB" secondAttribute="centerY" id="leK-FQ-UzZ"/>
                 <constraint firstItem="ldM-RA-2qB" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="n63-9e-Xpv"/>

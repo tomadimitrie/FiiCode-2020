@@ -9,5 +9,7 @@
 import SpriteKit
 
 class Level5: Level {
-    
+    override var helpText: String? {
+        "The portal to the next level is not always on the right side of the screen"
+    }
 }

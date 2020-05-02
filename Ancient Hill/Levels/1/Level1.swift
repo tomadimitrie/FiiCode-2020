@@ -8,7 +8,11 @@
 
 import SpriteKit
 
-class Level1: Level {    
+class Level1: Level {
+    override var helpText: String? {
+        "...I don't even know how to explain this, it's too obvious"
+    }
+    
     override func didBegin(_ contact: SKPhysicsContact) {
         super.didBegin(contact)
         for nodeName in [contact.bodyA.node?.name, contact.bodyB.node?.name].compactMap({ $0 }) {

@@ -6,4 +6,10 @@
 //  Copyright © 2020 Green Meerkats of Romania. All rights reserved.
 //
 
-import Foundation
+import SpriteKit
+
+class Level7: Level {
+    override var helpText: String? {
+        "Remember what I said 2 levels earlier?"
+    }
+}
