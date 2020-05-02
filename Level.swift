@@ -1,9 +1,9 @@
 //
 //  Level.swift
-//  Ancient Hill
+//  In Search of the Lost Puzzle
 //
 //  Created by Dimitrie-Toma Furdui on 13/04/2020.
-//  Copyright © 2020 Green Meerkats of Romania. All rights reserved.
+//  Copyright © 2020 The Green Meerkats. All rights reserved.
 //
 
 import SpriteKit
@@ -58,7 +58,7 @@ class Level: GameScene {
         self.setupTileMap()
         self.setupPlayer()
         let levelString = String(NSStringFromClass(Self.self))
-        self.showLabel(with: "Level \(self.getLevelNumber(from: levelString))")
+        self.showLabel(with: "Level \(self.getLevelNumber(from: levelString))", duration: 2)
     }
     
     private func setupNodes() {
@@ -87,16 +87,16 @@ class Level: GameScene {
         self.player.physicsBody = physicsBody
     }
     
-    private func showLabel(with text: String, completionHandler: @escaping () -> Void = {}) {
+    private func showLabel(with text: String, duration: TimeInterval, completionHandler: @escaping () -> Void = {}) {
         self.label.text = text
         self.label.fontName = "ThaleahFat"
         self.label.fontSize = 20
         self.label.position = .zero
         self.label.alpha = 0
         self.label.run(.sequence([
-            .fadeAlpha(by: 1, duration: 1),
-            .wait(forDuration: 1),
-            .fadeAlpha(by: -1, duration: 1),
+            .fadeAlpha(by: 1, duration: duration),
+            .wait(forDuration: duration),
+            .fadeAlpha(by: -1, duration: duration),
             .run(completionHandler)
         ]))
     }
@@ -194,7 +194,7 @@ class Level: GameScene {
     func levelFailed() {
         if self.player.parent != nil {
             self.player.removeFromParent()
-            self.showLabel(with: "Failed") { [weak self] in
+            self.showLabel(with: "Failed", duration: 0.5) { [weak self] in
                 self?.sceneDelegate?.changeScene(to: Self.self)
             }
         }
@@ -208,10 +208,18 @@ extension Level: SKPhysicsContactDelegate {
         case Mask.player.rawValue | Mask.portal.rawValue:
             let currentClassString = String(NSStringFromClass(Self.self))
             let levelNumber = self.getLevelNumber(from: currentClassString)
-            let nextLevelNumber = levelNumber + 1
-            let nextClassString = "Ancient_Hill.Level\(nextLevelNumber)"
-            UserDefaults.standard.set(true, forKey: "level-\(nextLevelNumber)")
-            self.sceneDelegate?.changeScene(to: NSClassFromString(nextClassString) as! Level.Type)
+            if levelNumber < 10 {
+                let nextLevelNumber = levelNumber + 1
+                let nextClassString = "Lost_Puzzle.Level\(nextLevelNumber)"
+                UserDefaults.standard.set(true, forKey: "level-\(nextLevelNumber)")
+                self.sceneDelegate?.changeScene(to: NSClassFromString(nextClassString) as! Level.Type)
+            } else {
+                self.dialogueDelegate?.changeTexts(to: ["Congratulations! Now look for the lost puzzle."])
+                self.dialogueDelegate?.changeCompletionHandler(to: {
+                    self.sceneDelegate?.runSegue(name: "back")
+                })
+                self.dialogueDelegate?.toggleDialogue(to: true)
+            }
         default:
             break
         }

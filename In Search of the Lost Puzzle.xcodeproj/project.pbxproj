@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DF236ABCBE6C56E8ADA2EDE8 /* Pods_In_Search_of_the_Lost_Puzzle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EDB9BDC9AC7E6C1AEE9DBD5 /* Pods_In_Search_of_the_Lost_Puzzle.framework */; };
 		E209BFFC24194CFD00F594AD /* DialogueView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E209BFFB24194CFD00F594AD /* DialogueView.xib */; };
 		E209BFFE24194D0900F594AD /* DialogueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E209BFFD24194D0900F594AD /* DialogueView.swift */; };
 		E209C00124194E9000F594AD /* ThaleahFat.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E209C00024194E9000F594AD /* ThaleahFat.ttf */; };
@@ -50,13 +51,12 @@
 		E2DFBF6024016D2300805804 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DFBF5F24016D2300805804 /* Helpers.swift */; };
 		E2F04B842448A8C80038AB51 /* Level2.sks in Resources */ = {isa = PBXBuildFile; fileRef = E2F04B832448A8C80038AB51 /* Level2.sks */; };
 		E2F04B862448A8DF0038AB51 /* Level2.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F04B852448A8DF0038AB51 /* Level2.swift */; };
-		E913C9D44C1E075809B12A60 /* Pods_Ancient_Hill.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65CB58B4057B35FC8F4F8A29 /* Pods_Ancient_Hill.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		619BECD209199061E6CF0A5D /* Pods-Ancient Hill.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ancient Hill.release.xcconfig"; path = "Target Support Files/Pods-Ancient Hill/Pods-Ancient Hill.release.xcconfig"; sourceTree = "<group>"; };
-		65CB58B4057B35FC8F4F8A29 /* Pods_Ancient_Hill.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ancient_Hill.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B49F2767234947EC9FB778BC /* Pods-Ancient Hill.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ancient Hill.debug.xcconfig"; path = "Target Support Files/Pods-Ancient Hill/Pods-Ancient Hill.debug.xcconfig"; sourceTree = "<group>"; };
+		422D381AFB5B98D18DE29C6C /* Pods-In Search of the Lost Puzzle.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-In Search of the Lost Puzzle.debug.xcconfig"; path = "Target Support Files/Pods-In Search of the Lost Puzzle/Pods-In Search of the Lost Puzzle.debug.xcconfig"; sourceTree = "<group>"; };
+		966609D6524AB7F57BCDF1EB /* Pods-In Search of the Lost Puzzle.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-In Search of the Lost Puzzle.release.xcconfig"; path = "Target Support Files/Pods-In Search of the Lost Puzzle/Pods-In Search of the Lost Puzzle.release.xcconfig"; sourceTree = "<group>"; };
+		9EDB9BDC9AC7E6C1AEE9DBD5 /* Pods_In_Search_of_the_Lost_Puzzle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_In_Search_of_the_Lost_Puzzle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E209BFFB24194CFD00F594AD /* DialogueView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DialogueView.xib; sourceTree = "<group>"; };
 		E209BFFD24194D0900F594AD /* DialogueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogueView.swift; sourceTree = "<group>"; };
 		E209C00024194E9000F594AD /* ThaleahFat.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ThaleahFat.ttf; sourceTree = "<group>"; };
@@ -91,7 +91,7 @@
 		E2AFFDDC245DE77000571A16 /* Level10.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level10.swift; sourceTree = "<group>"; };
 		E2AFFDDE245DEE8100571A16 /* Level9.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level9.sks; sourceTree = "<group>"; };
 		E2B35C9124449C69001B922B /* Level1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level1.swift; sourceTree = "<group>"; };
-		E2DFBF422401545400805804 /* Ancient Hill.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Ancient Hill.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E2DFBF422401545400805804 /* Lost Puzzle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Lost Puzzle.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2DFBF452401545400805804 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E2DFBF4D2401545400805804 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		E2DFBF502401545400805804 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -109,28 +109,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E913C9D44C1E075809B12A60 /* Pods_Ancient_Hill.framework in Frameworks */,
+				DF236ABCBE6C56E8ADA2EDE8 /* Pods_In_Search_of_the_Lost_Puzzle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		21380531B3E849785A417E46 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				65CB58B4057B35FC8F4F8A29 /* Pods_Ancient_Hill.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		508A9A4CCDFB3ED85B334815 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				B49F2767234947EC9FB778BC /* Pods-Ancient Hill.debug.xcconfig */,
-				619BECD209199061E6CF0A5D /* Pods-Ancient Hill.release.xcconfig */,
+				422D381AFB5B98D18DE29C6C /* Pods-In Search of the Lost Puzzle.debug.xcconfig */,
+				966609D6524AB7F57BCDF1EB /* Pods-In Search of the Lost Puzzle.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		82D6C512C205E5FE2491F2D6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9EDB9BDC9AC7E6C1AEE9DBD5 /* Pods_In_Search_of_the_Lost_Puzzle.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		E209BFFA24194CE300F594AD /* Dialogue */ = {
@@ -269,22 +269,22 @@
 		E2DFBF392401545400805804 = {
 			isa = PBXGroup;
 			children = (
-				E2DFBF442401545400805804 /* Ancient Hill */,
+				E2DFBF442401545400805804 /* In Search of the Lost Puzzle */,
 				E2DFBF432401545400805804 /* Products */,
 				508A9A4CCDFB3ED85B334815 /* Pods */,
-				21380531B3E849785A417E46 /* Frameworks */,
+				82D6C512C205E5FE2491F2D6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
 		E2DFBF432401545400805804 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E2DFBF422401545400805804 /* Ancient Hill.app */,
+				E2DFBF422401545400805804 /* Lost Puzzle.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		E2DFBF442401545400805804 /* Ancient Hill */ = {
+		E2DFBF442401545400805804 /* In Search of the Lost Puzzle */ = {
 			isa = PBXGroup;
 			children = (
 				E2B35C9024449A64001B922B /* Levels */,
@@ -301,7 +301,7 @@
 				E2DFBF542401545700805804 /* LaunchScreen.storyboard */,
 				E2DFBF572401545700805804 /* Info.plist */,
 			);
-			path = "Ancient Hill";
+			path = "In Search of the Lost Puzzle";
 			sourceTree = "<group>";
 		};
 		E2E9E70C2447754000848A76 /* 1 */ = {
@@ -325,11 +325,11 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		E2DFBF412401545400805804 /* Ancient Hill */ = {
+		E2DFBF412401545400805804 /* In Search of the Lost Puzzle */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E2DFBF5A2401545700805804 /* Build configuration list for PBXNativeTarget "Ancient Hill" */;
+			buildConfigurationList = E2DFBF5A2401545700805804 /* Build configuration list for PBXNativeTarget "In Search of the Lost Puzzle" */;
 			buildPhases = (
-				0B9EC6ACAA9929AB6D700492 /* [CP] Check Pods Manifest.lock */,
+				5F93DBC12A24DCBCC7AC971A /* [CP] Check Pods Manifest.lock */,
 				E2DFBF3E2401545400805804 /* Sources */,
 				E2DFBF3F2401545400805804 /* Frameworks */,
 				E2DFBF402401545400805804 /* Resources */,
@@ -339,9 +339,9 @@
 			);
 			dependencies = (
 			);
-			name = "Ancient Hill";
+			name = "In Search of the Lost Puzzle";
 			productName = "Ancient Hill";
-			productReference = E2DFBF422401545400805804 /* Ancient Hill.app */;
+			productReference = E2DFBF422401545400805804 /* Lost Puzzle.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -372,7 +372,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E2DFBF412401545400805804 /* Ancient Hill */,
+				E2DFBF412401545400805804 /* In Search of the Lost Puzzle */,
 			);
 		};
 /* End PBXProject section */
@@ -406,7 +406,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0B9EC6ACAA9929AB6D700492 /* [CP] Check Pods Manifest.lock */ = {
+		5F93DBC12A24DCBCC7AC971A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -421,7 +421,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Ancient Hill-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-In Search of the Lost Puzzle-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -444,8 +444,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "
-";
+			shellScript = "\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -620,41 +619,41 @@
 		};
 		E2DFBF5B2401545700805804 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B49F2767234947EC9FB778BC /* Pods-Ancient Hill.debug.xcconfig */;
+			baseConfigurationReference = 422D381AFB5B98D18DE29C6C /* Pods-In Search of the Lost Puzzle.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7M3E2N6MMD;
-				INFOPLIST_FILE = "Ancient Hill/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/In Search of the Lost Puzzle/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.greenkats.ancienthill;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.thegreenmeerkats.insearchofthelostpuzzle;
+				PRODUCT_NAME = "Lost Puzzle";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		E2DFBF5C2401545700805804 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 619BECD209199061E6CF0A5D /* Pods-Ancient Hill.release.xcconfig */;
+			baseConfigurationReference = 966609D6524AB7F57BCDF1EB /* Pods-In Search of the Lost Puzzle.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7M3E2N6MMD;
-				INFOPLIST_FILE = "Ancient Hill/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/In Search of the Lost Puzzle/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.greenkats.ancienthill;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.thegreenmeerkats.insearchofthelostpuzzle;
+				PRODUCT_NAME = "Lost Puzzle";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -670,7 +669,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E2DFBF5A2401545700805804 /* Build configuration list for PBXNativeTarget "Ancient Hill" */ = {
+		E2DFBF5A2401545700805804 /* Build configuration list for PBXNativeTarget "In Search of the Lost Puzzle" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E2DFBF5B2401545700805804 /* Debug */,
