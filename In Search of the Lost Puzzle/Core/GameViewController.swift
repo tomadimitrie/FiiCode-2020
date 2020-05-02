@@ -45,12 +45,12 @@ class GameViewController: UIViewController {
             self.actionButtonScene.scaleMode = .aspectFill
             self.actionButtonView.presentScene(self.actionButtonScene)
         }
-        #if DEBUG
-        self.gameView.showsFPS = true
-        self.gameView.showsNodeCount = true
-        self.gameView.showsPhysics = true
-        #endif
-        self.gameView.ignoresSiblingOrder = true
+//        #if DEBUG
+//        self.gameView.showsFPS = true
+//        self.gameView.showsNodeCount = true
+//        self.gameView.showsPhysics = true
+//        #endif
+//        self.gameView.ignoresSiblingOrder = true
     }
     
     override var shouldAutorotate: Bool {

@@ -57,8 +57,17 @@ class Level: GameScene {
         self.setupPortal()
         self.setupTileMap()
         self.setupPlayer()
+        self.setupBackground()
         let levelString = String(NSStringFromClass(Self.self))
         self.showLabel(with: "Level \(self.getLevelNumber(from: levelString))", duration: 2)
+    }
+    
+    private func setupBackground() {
+        let background = SKSpriteNode(imageNamed: "background")
+        background.zPosition = -1
+        background.size = self.frame.size
+        background.position = CGPoint(x: self.frame.midX, y: self.frame.midY)
+        self.addChild(background)
     }
     
     private func setupNodes() {
@@ -216,7 +225,7 @@ extension Level: SKPhysicsContactDelegate {
             } else {
                 self.dialogueDelegate?.changeTexts(to: ["Congratulations! Now look for the lost puzzle."])
                 self.dialogueDelegate?.changeCompletionHandler(to: {
-                    self.sceneDelegate?.runSegue(name: "back")
+                    self.sceneDelegate?.runSegue(name: "credits")
                 })
                 self.dialogueDelegate?.toggleDialogue(to: true)
             }
