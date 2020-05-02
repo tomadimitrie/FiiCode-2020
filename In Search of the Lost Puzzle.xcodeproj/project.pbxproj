@@ -340,7 +340,7 @@
 			dependencies = (
 			);
 			name = "In Search of the Lost Puzzle";
-			productName = "Ancient Hill";
+			productName = "In Search of The Lost Puzzle";
 			productReference = E2DFBF422401545400805804 /* Lost Puzzle.app */;
 			productType = "com.apple.product-type.application";
 		};

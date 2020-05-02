@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "E2DFBF412401545400805804"
-               BuildableName = "Ancient Hill.app"
-               BlueprintName = "Ancient Hill"
-               ReferencedContainer = "container:Ancient Hill.xcodeproj">
+               BuildableName = "Lost Puzzle.app"
+               BlueprintName = "In Search of the Lost Puzzle"
+               ReferencedContainer = "container:In Search of the Lost Puzzle.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -50,15 +50,6 @@
             ReferencedContainer = "container:In Search of the Lost Puzzle.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "E2DFBF412401545400805804"
-            BuildableName = "Ancient Hill.app"
-            BlueprintName = "Ancient Hill"
-            ReferencedContainer = "container:Ancient Hill.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -71,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E2DFBF412401545400805804"
-            BuildableName = "Ancient Hill.app"
-            BlueprintName = "Ancient Hill"
-            ReferencedContainer = "container:Ancient Hill.xcodeproj">
+            BuildableName = "Lost Puzzle.app"
+            BlueprintName = "In Search of the Lost Puzzle"
+            ReferencedContainer = "container:In Search of the Lost Puzzle.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
