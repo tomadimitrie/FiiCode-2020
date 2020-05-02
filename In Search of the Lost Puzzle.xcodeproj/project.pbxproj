@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DF236ABCBE6C56E8ADA2EDE8 /* Pods_In_Search_of_the_Lost_Puzzle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EDB9BDC9AC7E6C1AEE9DBD5 /* Pods_In_Search_of_the_Lost_Puzzle.framework */; };
 		E209BFFC24194CFD00F594AD /* DialogueView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E209BFFB24194CFD00F594AD /* DialogueView.xib */; };
 		E209BFFE24194D0900F594AD /* DialogueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E209BFFD24194D0900F594AD /* DialogueView.swift */; };
 		E209C00124194E9000F594AD /* ThaleahFat.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E209C00024194E9000F594AD /* ThaleahFat.ttf */; };
@@ -25,6 +24,7 @@
 		E27BDD632444A5EC00C06EE2 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27BDD622444A5EC00C06EE2 /* Level.swift */; };
 		E28795A2244775B700EA0078 /* Level1.sks in Resources */ = {isa = PBXBuildFile; fileRef = E28795A1244775B700EA0078 /* Level1.sks */; };
 		E28B0123245E0EAB00E2098A /* CreditsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28B0122245E0EAB00E2098A /* CreditsViewController.swift */; };
+		E29D9DF4245E1EFE00EFA0B2 /* TheEndViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29D9DF3245E1EFE00EFA0B2 /* TheEndViewController.swift */; };
 		E2A3722C24534EDF00FB9AB1 /* Level6.sks in Resources */ = {isa = PBXBuildFile; fileRef = E2A3722B24534EDF00FB9AB1 /* Level6.sks */; };
 		E2A3722E24534EE800FB9AB1 /* Level6.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A3722D24534EE800FB9AB1 /* Level6.swift */; };
 		E2AC188C2405815400B4896B /* HUDDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AC188B2405815400B4896B /* HUDDelegate.swift */; };
@@ -55,9 +55,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		422D381AFB5B98D18DE29C6C /* Pods-In Search of the Lost Puzzle.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-In Search of the Lost Puzzle.debug.xcconfig"; path = "Target Support Files/Pods-In Search of the Lost Puzzle/Pods-In Search of the Lost Puzzle.debug.xcconfig"; sourceTree = "<group>"; };
-		966609D6524AB7F57BCDF1EB /* Pods-In Search of the Lost Puzzle.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-In Search of the Lost Puzzle.release.xcconfig"; path = "Target Support Files/Pods-In Search of the Lost Puzzle/Pods-In Search of the Lost Puzzle.release.xcconfig"; sourceTree = "<group>"; };
-		9EDB9BDC9AC7E6C1AEE9DBD5 /* Pods_In_Search_of_the_Lost_Puzzle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_In_Search_of_the_Lost_Puzzle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E209BFFB24194CFD00F594AD /* DialogueView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DialogueView.xib; sourceTree = "<group>"; };
 		E209BFFD24194D0900F594AD /* DialogueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogueView.swift; sourceTree = "<group>"; };
 		E209C00024194E9000F594AD /* ThaleahFat.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ThaleahFat.ttf; sourceTree = "<group>"; };
@@ -72,9 +69,10 @@
 		E25F33672448D2D300328DEF /* Level3.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level3.sks; sourceTree = "<group>"; };
 		E25F336A2448D48000328DEF /* Level4.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level4.sks; sourceTree = "<group>"; };
 		E25F336C2448D48900328DEF /* Level4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level4.swift; sourceTree = "<group>"; };
-		E27BDD622444A5EC00C06EE2 /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = SOURCE_ROOT; };
+		E27BDD622444A5EC00C06EE2 /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Level.swift; path = "In Search of the Lost Puzzle/Core/Level.swift"; sourceTree = SOURCE_ROOT; };
 		E28795A1244775B700EA0078 /* Level1.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level1.sks; sourceTree = "<group>"; };
 		E28B0122245E0EAB00E2098A /* CreditsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsViewController.swift; sourceTree = "<group>"; };
+		E29D9DF3245E1EFE00EFA0B2 /* TheEndViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheEndViewController.swift; sourceTree = "<group>"; };
 		E2A3722B24534EDF00FB9AB1 /* Level6.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level6.sks; sourceTree = "<group>"; };
 		E2A3722D24534EE800FB9AB1 /* Level6.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level6.swift; sourceTree = "<group>"; };
 		E2AC188B2405815400B4896B /* HUDDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDDelegate.swift; sourceTree = "<group>"; };
@@ -111,7 +109,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DF236ABCBE6C56E8ADA2EDE8 /* Pods_In_Search_of_the_Lost_Puzzle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,18 +118,8 @@
 		508A9A4CCDFB3ED85B334815 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				422D381AFB5B98D18DE29C6C /* Pods-In Search of the Lost Puzzle.debug.xcconfig */,
-				966609D6524AB7F57BCDF1EB /* Pods-In Search of the Lost Puzzle.release.xcconfig */,
 			);
 			path = Pods;
-			sourceTree = "<group>";
-		};
-		82D6C512C205E5FE2491F2D6 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				9EDB9BDC9AC7E6C1AEE9DBD5 /* Pods_In_Search_of_the_Lost_Puzzle.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		E209BFFA24194CE300F594AD /* Dialogue */ = {
@@ -163,6 +150,7 @@
 				E2AFFDC6245DB85300571A16 /* FadeSegue.swift */,
 				E2AFFDC8245DB99100571A16 /* ChooseLevelViewController.swift */,
 				E28B0122245E0EAB00E2098A /* CreditsViewController.swift */,
+				E29D9DF3245E1EFE00EFA0B2 /* TheEndViewController.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -275,7 +263,6 @@
 				E2DFBF442401545400805804 /* In Search of the Lost Puzzle */,
 				E2DFBF432401545400805804 /* Products */,
 				508A9A4CCDFB3ED85B334815 /* Pods */,
-				82D6C512C205E5FE2491F2D6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -332,11 +319,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E2DFBF5A2401545700805804 /* Build configuration list for PBXNativeTarget "In Search of the Lost Puzzle" */;
 			buildPhases = (
-				5F93DBC12A24DCBCC7AC971A /* [CP] Check Pods Manifest.lock */,
 				E2DFBF3E2401545400805804 /* Sources */,
 				E2DFBF3F2401545400805804 /* Frameworks */,
 				E2DFBF402401545400805804 /* Resources */,
-				E2BFA3992415520C003FF071 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -408,50 +393,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		5F93DBC12A24DCBCC7AC971A /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-In Search of the Lost Puzzle-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E2BFA3992415520C003FF071 /* SwiftLint */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = SwiftLint;
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "
-";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		E2DFBF3E2401545400805804 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -467,6 +408,7 @@
 				E21734642405802E005B1A94 /* HUDScene.swift in Sources */,
 				E209C005241959A300F594AD /* AssetsLoader.swift in Sources */,
 				E2AFFDCC245DD4BE00571A16 /* Level7.swift in Sources */,
+				E29D9DF4245E1EFE00EFA0B2 /* TheEndViewController.swift in Sources */,
 				E2AC188C2405815400B4896B /* HUDDelegate.swift in Sources */,
 				E2DFBF4E2401545400805804 /* GameViewController.swift in Sources */,
 				E209C00824196CF100F594AD /* SceneDelegate.swift in Sources */,
@@ -624,7 +566,6 @@
 		};
 		E2DFBF5B2401545700805804 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 422D381AFB5B98D18DE29C6C /* Pods-In Search of the Lost Puzzle.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -644,7 +585,6 @@
 		};
 		E2DFBF5C2401545700805804 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 966609D6524AB7F57BCDF1EB /* Pods-In Search of the Lost Puzzle.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

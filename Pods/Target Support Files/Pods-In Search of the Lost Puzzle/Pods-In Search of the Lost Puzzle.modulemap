@@ -1,6 +1,0 @@
-framework module Pods_In_Search_of_the_Lost_Puzzle {
-  umbrella header "Pods-In Search of the Lost Puzzle-umbrella.h"
-
-  export *
-  module * { export * }
-}

@@ -58,6 +58,7 @@ the lost Puzzle</string>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="HaE-kU-Ya5"/>
                     </view>
+                    <navigationItem key="navigationItem" id="bAx-z6-r3c"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tcd-oG-jsR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -246,11 +247,16 @@ the lost Puzzle</string>
                                         <rect key="frame" x="0.0" y="0.0" width="768" height="1000"/>
                                         <subviews>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KFJ-rk-XvB">
-                                                <rect key="frame" x="96" y="735.33333333333337" width="576" height="164.66666666666663"/>
+                                                <rect key="frame" x="96" y="646" width="576" height="329"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" secondItem="KFJ-rk-XvB" secondAttribute="height" multiplier="7:2" id="pZO-7f-Cci"/>
+                                                    <constraint firstAttribute="width" secondItem="KFJ-rk-XvB" secondAttribute="height" multiplier="7:4" id="pZO-7f-Cci"/>
                                                 </constraints>
-                                                <string key="text">Thanks to Finnachu for finding the lost puzzle in this world where we are all lost and for showing us that we can all find ourselves if we really want</string>
+                                                <string key="text">Thanks to Finnachu for finding the lost puzzle in this world where we are all lost and for showing us that we can all find ourselves if we really want
+
+Special thanks to The Green Meerkats, for making Finnachu's wish become true
+
+And most of all
+You, for showing us that if you don't give up, you can do anything</string>
                                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <fontDescription key="fontDescription" name="ThaleahFat" family="ThaleahFat" pointSize="28"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -268,7 +274,7 @@ the lost Puzzle</string>
                                             <constraint firstItem="KFJ-rk-XvB" firstAttribute="centerX" secondItem="LYI-C0-Hf7" secondAttribute="centerX" id="Kb2-ZH-fhu"/>
                                             <constraint firstItem="VPY-Tz-TfT" firstAttribute="centerX" secondItem="LYI-C0-Hf7" secondAttribute="centerX" id="N9z-L2-51q"/>
                                             <constraint firstItem="VPY-Tz-TfT" firstAttribute="top" secondItem="LYI-C0-Hf7" secondAttribute="top" constant="50" id="gVW-sz-RAw"/>
-                                            <constraint firstAttribute="bottom" secondItem="KFJ-rk-XvB" secondAttribute="bottom" constant="100" id="ne6-kW-K1A"/>
+                                            <constraint firstAttribute="bottom" secondItem="KFJ-rk-XvB" secondAttribute="bottom" constant="25" id="ne6-kW-K1A"/>
                                             <constraint firstAttribute="height" constant="1000" id="y8F-Qc-HAT"/>
                                         </constraints>
                                     </view>
@@ -299,12 +305,45 @@ the lost Puzzle</string>
                     </view>
                     <navigationItem key="navigationItem" id="G88-De-aZc"/>
                     <connections>
+                        <outlet property="imageView" destination="VPY-Tz-TfT" id="xif-1b-dCu"/>
                         <outlet property="scrollView" destination="vLA-xI-IDu" id="Cmf-Kf-Rzu"/>
+                        <segue destination="543-4w-TRi" kind="show" identifier="end" id="xjK-pW-eAv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lCn-YB-tOV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1538.1696428571429" y="137.68115942028987"/>
+        </scene>
+        <!--The End View Controller-->
+        <scene sceneID="l2Q-oT-Sba">
+            <objects>
+                <viewController id="543-4w-TRi" customClass="TheEndViewController" customModule="Lost_Puzzle" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bKW-V9-x5m">
+                        <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The End" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PuH-DT-HGu">
+                                <rect key="frame" x="366.66666666666669" y="173.66666666666666" width="163.00000000000006" height="46"/>
+                                <fontDescription key="fontDescription" name="ThaleahFat" family="ThaleahFat" pointSize="50"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="PuH-DT-HGu" firstAttribute="centerX" secondItem="4qC-2d-Qnb" secondAttribute="centerX" id="YPm-dS-lhh"/>
+                            <constraint firstItem="PuH-DT-HGu" firstAttribute="centerY" secondItem="4qC-2d-Qnb" secondAttribute="centerY" id="hI2-Fq-AgR"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="4qC-2d-Qnb"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="h4F-Ui-ysc"/>
+                    <connections>
+                        <segue destination="exI-Af-Dew" kind="show" identifier="beginning" id="qsJ-os-dYZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cFb-wm-jHF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2227" y="138"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

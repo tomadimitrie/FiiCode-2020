@@ -26,7 +26,7 @@
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dialogue" translatesAutoresizingMaskIntoConstraints="NO" id="ldM-RA-2qB">
                     <rect key="frame" x="44" y="144.66666666666663" width="808" height="248.33333333333337"/>
                 </imageView>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8uc-wi-ugV">
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8uc-wi-ugV">
                     <rect key="frame" x="69" y="249.66666666666666" width="758" height="38.333333333333343"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <fontDescription key="fontDescription" name="ThaleahFat" family="ThaleahFat" pointSize="22"/>
